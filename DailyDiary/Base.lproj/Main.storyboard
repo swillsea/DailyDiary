@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--EntriesVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DailyDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="EntriesVC" customModule="DailyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gridCell" id="b6K-OP-y5A">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gridCell" id="b6K-OP-y5A" customClass="GridCell" customModule="DailyDiary" customModuleProvider="target">
                                         <rect key="frame" x="109.5" y="64" width="156" height="153"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -47,10 +47,11 @@
                                             <constraint firstItem="ewN-Hl-cZh" firstAttribute="top" secondItem="b6K-OP-y5A" secondAttribute="topMargin" constant="-8" id="tKa-ph-dXE"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="imageView" destination="ewN-Hl-cZh" id="ese-I1-dDL"/>
                                             <segue destination="m6b-oU-zeE" kind="show" identifier="toDayView" id="fVg-nH-MO9"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="listCell" id="0qe-UF-5i2">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="listCell" id="0qe-UF-5i2" customClass="ListCell" customModule="DailyDiary" customModuleProvider="target">
                                         <rect key="frame" x="7.5" y="227" width="360" height="77"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -82,6 +83,12 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <size key="customSize" width="360" height="77"/>
+                                        <connections>
+                                            <outlet property="dayLabel" destination="3kA-pb-Yav" id="Yxj-Nd-d1o"/>
+                                            <outlet property="entryLabel" destination="g79-9Q-qAy" id="YSy-LT-IxU"/>
+                                            <outlet property="imageView" destination="koq-1c-wuY" id="FzE-AR-oIN"/>
+                                            <outlet property="monthLabel" destination="pVY-VO-r99" id="4tq-2F-ytZ"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -99,7 +106,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tyd-iF-VfH">
-                        <barButtonItem key="leftBarButtonItem" image="iconGrid" id="pTR-lg-HnD"/>
+                        <barButtonItem key="leftBarButtonItem" image="grid" id="pTR-lg-HnD">
+                            <connections>
+                                <action selector="onLayoutButtonPressed:" destination="BYZ-38-t0r" id="K9s-Vf-vDU"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QWy-7h-cJO">
                             <connections>
                                 <segue destination="0J1-nR-5iK" kind="show" identifier="toAddNew" id="i6U-jJ-cgG"/>
@@ -107,6 +118,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="layoutButton" destination="pTR-lg-HnD" id="TkN-0P-ujI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,7 +129,7 @@
         <!--January 5th, 2015-->
         <scene sceneID="vvF-hl-6yi">
             <objects>
-                <viewController id="m6b-oU-zeE" sceneMemberID="viewController">
+                <viewController id="m6b-oU-zeE" customClass="DayByDayVC" customModule="DailyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qfe-Hu-YWe"/>
                         <viewControllerLayoutGuide type="bottom" id="gEu-8k-dRL"/>
@@ -135,12 +149,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VmE-hP-u5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="850.5" y="1932.5"/>
+            <point key="canvasLocation" x="850.5" y="1890.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Or EditVC-->
         <scene sceneID="i3r-M4-9Px">
             <objects>
-                <viewController id="0J1-nR-5iK" sceneMemberID="viewController">
+                <viewController id="0J1-nR-5iK" customClass="AddOrEditVC" customModule="DailyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OEs-B7-mZ6"/>
                         <viewControllerLayoutGuide type="bottom" id="OrK-ae-gS1"/>
@@ -149,8 +163,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i4s-ZE-T9b">
-                                <rect key="frame" x="20" y="82" width="335" height="294"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i4s-ZE-T9b">
+                                <rect key="frame" x="16" y="84" width="343" height="383"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -158,10 +172,23 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="i4s-ZE-T9b" firstAttribute="leading" secondItem="YkJ-p7-61a" secondAttribute="leadingMargin" id="Ioz-jT-u7u"/>
+                            <constraint firstItem="i4s-ZE-T9b" firstAttribute="trailing" secondItem="YkJ-p7-61a" secondAttribute="trailingMargin" id="Ukk-gy-PeZ"/>
+                            <constraint firstItem="i4s-ZE-T9b" firstAttribute="top" secondItem="OEs-B7-mZ6" secondAttribute="bottom" constant="20" id="eLK-Cy-ZCr"/>
+                            <constraint firstItem="OrK-ae-gS1" firstAttribute="top" secondItem="i4s-ZE-T9b" secondAttribute="bottom" constant="200" id="ifd-xT-QUs"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4hM-kr-gNS">
-                        <barButtonItem key="rightBarButtonItem" image="camera" id="bPR-HA-Rai"/>
+                        <barButtonItem key="rightBarButtonItem" image="camera" id="bPR-HA-Rai">
+                            <connections>
+                                <action selector="onCameraButtonPressed:" destination="0J1-nR-5iK" id="avS-xO-Mgj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="entryText" destination="i4s-ZE-T9b" id="u0H-cU-8aT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8q-ye-hXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -194,7 +221,7 @@
     </scenes>
     <resources>
         <image name="camera" width="33" height="24"/>
-        <image name="iconGrid" width="24" height="24"/>
+        <image name="grid" width="24" height="24"/>
         <image name="save1" width="1202" height="1202"/>
     </resources>
     <inferredMetricsTieBreakers>

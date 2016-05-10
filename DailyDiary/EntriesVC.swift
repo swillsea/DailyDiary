@@ -10,6 +10,9 @@ import UIKit
 
 class EntriesVC: UIViewController {
 
+    @IBOutlet weak var layoutButton: UIBarButtonItem!
+    var viewIsListLayout = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +25,16 @@ class EntriesVC: UIViewController {
     }
     
 
+    @IBAction func onLayoutButtonPressed(sender: UIBarButtonItem) {
+        
+        if (viewIsListLayout) {
+            self.layoutButton.image = UIImage.init(named:"grid")
+        } else {
+            self.layoutButton.image = UIImage.init(named:"list")
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 

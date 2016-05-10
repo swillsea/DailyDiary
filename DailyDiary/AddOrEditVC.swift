@@ -10,6 +10,8 @@ import UIKit
 
 class AddOrEditVC: UIViewController {
 
+    @IBOutlet weak var entryText: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,14 +24,8 @@ class AddOrEditVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func onCameraButtonPressed(sender: UIBarButtonItem) {
+        
     }
-    */
-
+    
 }
