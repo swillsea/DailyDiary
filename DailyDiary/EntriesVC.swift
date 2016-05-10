@@ -25,17 +25,13 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         return 10;
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsZero
-    }
-    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.size.width
 
         if viewIsListLayout {
             return CGSize(width: collectionViewWidth, height: 75)
         } else {
-            return CGSize(width: collectionViewWidth/3, height: collectionViewWidth/3)
+            return CGSize(width: collectionViewWidth/2, height: collectionViewWidth/2)
         }
     }
     
@@ -52,11 +48,11 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     @IBAction func onLayoutButtonPressed(sender: UIBarButtonItem) {
         
         if (viewIsListLayout) {
-            self.layoutButton.image = UIImage.init(named:"grid")
+            self.layoutButton.image = UIImage.init(named:"list")
             collectionView.reloadData()
             viewIsListLayout = false
         } else {
-            self.layoutButton.image = UIImage.init(named:"list")
+            self.layoutButton.image = UIImage.init(named:"grid")
             viewIsListLayout = true
             collectionView.reloadData()
         }
