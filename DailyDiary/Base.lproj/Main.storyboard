@@ -34,7 +34,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="156" height="153"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ewN-Hl-cZh">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="save1" translatesAutoresizingMaskIntoConstraints="NO" id="ewN-Hl-cZh">
                                                     <rect key="frame" x="0.0" y="0.0" width="156" height="153"/>
                                                 </imageView>
                                             </subviews>
@@ -63,7 +63,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="koq-1c-wuY">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="save1" translatesAutoresizingMaskIntoConstraints="NO" id="koq-1c-wuY">
                                                     <rect key="frame" x="8" y="8" width="61" height="61"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jun" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVY-VO-r99">
@@ -99,7 +99,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tyd-iF-VfH">
-                        <barButtonItem key="leftBarButtonItem" title="change" id="pTR-lg-HnD"/>
+                        <barButtonItem key="leftBarButtonItem" image="iconGrid" id="pTR-lg-HnD"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QWy-7h-cJO">
                             <connections>
                                 <segue destination="0J1-nR-5iK" kind="show" identifier="toAddNew" id="i6U-jJ-cgG"/>
@@ -112,7 +112,7 @@
             </objects>
             <point key="canvasLocation" x="850.5" y="1122.5"/>
         </scene>
-        <!--Title-->
+        <!--January 5th, 2015-->
         <scene sceneID="vvF-hl-6yi">
             <objects>
                 <viewController id="m6b-oU-zeE" sceneMemberID="viewController">
@@ -125,7 +125,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="aiz-2b-xPB">
+                    <navigationItem key="navigationItem" title="January 5th, 2015" id="aiz-2b-xPB">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="edit" id="ayb-zU-h1E">
                             <connections>
                                 <segue destination="0J1-nR-5iK" kind="show" identifier="toEdit" id="LLr-ww-QVT"/>
@@ -137,7 +137,7 @@
             </objects>
             <point key="canvasLocation" x="850.5" y="1932.5"/>
         </scene>
-        <!--Title-->
+        <!--View Controller-->
         <scene sceneID="i3r-M4-9Px">
             <objects>
                 <viewController id="0J1-nR-5iK" sceneMemberID="viewController">
@@ -159,8 +159,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="4hM-kr-gNS">
-                        <barButtonItem key="rightBarButtonItem" title="image" id="bPR-HA-Rai"/>
+                    <navigationItem key="navigationItem" id="4hM-kr-gNS">
+                        <barButtonItem key="rightBarButtonItem" image="camera" id="bPR-HA-Rai"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8q-ye-hXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -176,6 +176,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UVN-g3-ICj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.1058823529" green="0.27450980390000002" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -187,6 +192,11 @@
             <point key="canvasLocation" x="340" y="1123"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera" width="33" height="24"/>
+        <image name="iconGrid" width="24" height="24"/>
+        <image name="save1" width="1202" height="1202"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="i6U-jJ-cgG"/>
     </inferredMetricsTieBreakers>
