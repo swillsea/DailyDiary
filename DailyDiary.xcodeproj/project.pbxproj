@@ -20,6 +20,8 @@
 		223DF0091CE18926001E8192 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF0081CE18926001E8192 /* Date+Extension.swift */; };
 		223DF00C1CE189BB001E8192 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF00A1CE189BB001E8192 /* Entry+CoreDataProperties.swift */; };
 		223DF00D1CE189BB001E8192 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF00B1CE189BB001E8192 /* Entry.swift */; };
+		223DF00F1CE1AA33001E8192 /* AddEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223DF00E1CE1AA33001E8192 /* AddEdit.storyboard */; };
+		223DF0121CE1AA51001E8192 /* DayByDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223DF0101CE1AA51001E8192 /* DayByDay.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		223DF0081CE18926001E8192 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		223DF00A1CE189BB001E8192 /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		223DF00B1CE189BB001E8192 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		223DF00E1CE1AA33001E8192 /* AddEdit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddEdit.storyboard; sourceTree = "<group>"; };
+		223DF0111CE1AA51001E8192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DayByDay.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			children = (
 				223DEFE61CE1813A001E8192 /* AppDelegate.swift */,
 				223DEFEA1CE1813A001E8192 /* Main.storyboard */,
+				223DF0101CE1AA51001E8192 /* DayByDay.storyboard */,
+				223DF00E1CE1AA33001E8192 /* AddEdit.storyboard */,
 				223DF0071CE185CB001E8192 /* Model */,
 				223DF0061CE185BD001E8192 /* Controllers */,
 				223DF0051CE185B4001E8192 /* Views */,
@@ -170,7 +176,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223DF00F1CE1AA33001E8192 /* AddEdit.storyboard in Resources */,
 				223DEFF41CE1813A001E8192 /* LaunchScreen.storyboard in Resources */,
+				223DF0121CE1AA51001E8192 /* DayByDay.storyboard in Resources */,
 				223DEFF11CE1813A001E8192 /* Assets.xcassets in Resources */,
 				223DEFEC1CE1813A001E8192 /* Main.storyboard in Resources */,
 			);
@@ -213,6 +221,14 @@
 				223DEFF31CE1813A001E8192 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		223DF0101CE1AA51001E8192 /* DayByDay.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				223DF0111CE1AA51001E8192 /* Base */,
+			);
+			name = DayByDay.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
