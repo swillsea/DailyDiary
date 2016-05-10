@@ -9,7 +9,7 @@
         <!--Add Or EditVC-->
         <scene sceneID="i3r-M4-9Px">
             <objects>
-                <viewController id="0J1-nR-5iK" customClass="AddOrEditVC" customModule="DailyDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddEdit" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0J1-nR-5iK" customClass="AddOrEditVC" customModule="DailyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OEs-B7-mZ6"/>
                         <viewControllerLayoutGuide type="bottom" id="OrK-ae-gS1"/>

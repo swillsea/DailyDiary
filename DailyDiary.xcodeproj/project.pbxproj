@@ -22,6 +22,7 @@
 		223DF00D1CE189BB001E8192 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF00B1CE189BB001E8192 /* Entry.swift */; };
 		223DF00F1CE1AA33001E8192 /* AddEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223DF00E1CE1AA33001E8192 /* AddEdit.storyboard */; };
 		223DF0121CE1AA51001E8192 /* DayByDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223DF0101CE1AA51001E8192 /* DayByDay.storyboard */; };
+		228E7F8D1CE25DFA003BF13B /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228E7F8C1CE25DFA003BF13B /* AnimationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		223DF00B1CE189BB001E8192 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		223DF00E1CE1AA33001E8192 /* AddEdit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddEdit.storyboard; sourceTree = "<group>"; };
 		223DF0111CE1AA51001E8192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DayByDay.storyboard; sourceTree = "<group>"; };
+		228E7F8C1CE25DFA003BF13B /* AnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		223DF0061CE185BD001E8192 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				228E7F8C1CE25DFA003BF13B /* AnimationViewController.swift */,
 				223DEFFD1CE18557001E8192 /* DayByDayVC.swift */,
 				223DEFFF1CE1856E001E8192 /* AddOrEditVC.swift */,
 				223DEFFB1CE18540001E8192 /* EntriesVC.swift */,
@@ -193,6 +196,7 @@
 			files = (
 				223DF00D1CE189BB001E8192 /* Entry.swift in Sources */,
 				223DEFEF1CE1813A001E8192 /* DailyDiary.xcdatamodeld in Sources */,
+				228E7F8D1CE25DFA003BF13B /* AnimationViewController.swift in Sources */,
 				223DEFE71CE1813A001E8192 /* AppDelegate.swift in Sources */,
 				223DEFFC1CE18540001E8192 /* EntriesVC.swift in Sources */,
 				223DF0041CE185A4001E8192 /* ListCell.swift in Sources */,

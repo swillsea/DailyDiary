@@ -49,8 +49,8 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         if (viewIsListLayout) {
             self.layoutButton.image = UIImage.init(named:"list")
-            collectionView.reloadData()
             viewIsListLayout = false
+            collectionView.reloadData()
         } else {
             self.layoutButton.image = UIImage.init(named:"grid")
             viewIsListLayout = true
