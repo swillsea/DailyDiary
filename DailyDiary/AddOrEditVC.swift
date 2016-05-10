@@ -7,25 +7,37 @@
 //
 
 import UIKit
+import CoreData
 
-class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate {
+class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var entryText: UITextView!
+    @IBOutlet weak var entryImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         entryText.becomeFirstResponder()
     }
 
     @IBAction func onCameraButtonPressed(sender: UIBarButtonItem) {
         
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate      = self
+        imagePicker.allowsEditing = true
+        
         let prompt = UIAlertController(title:nil, message:nil, preferredStyle: .ActionSheet)
         let firstAction = UIAlertAction(title: "Use Camera", style: .Default) { (alert: UIAlertAction!) -> Void in
-            //launch cameraVC
+            
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+            }
+
         }
         let secondAction = UIAlertAction(title: "Choose from Library", style: .Default) { (alert: UIAlertAction!) -> Void in
-            //launch importVC
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+
         }
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction) in
             //do nothing
@@ -34,6 +46,15 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate {
         prompt.addAction(secondAction)
         prompt.addAction(cancel)
         presentViewController(prompt, animated: true, completion:nil)
+        
+
     }
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        self.entryImageView.image = image
+        self.dismissViewControllerAnimated(true, completion: nil)
+        entryText.becomeFirstResponder()
+    }
+
 }
