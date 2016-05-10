@@ -8,22 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		223DEFE71CE1813A001E8192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DEFE61CE1813A001E8192 /* AppDelegate.swift */; };
-		223DEFE91CE1813A001E8192 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DEFE81CE1813A001E8192 /* ViewController.swift */; };
 		223DEFEC1CE1813A001E8192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223DEFEA1CE1813A001E8192 /* Main.storyboard */; };
 		223DEFEF1CE1813A001E8192 /* DailyDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 223DEFED1CE1813A001E8192 /* DailyDiary.xcdatamodeld */; };
 		223DEFF11CE1813A001E8192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223DEFF01CE1813A001E8192 /* Assets.xcassets */; };
 		223DEFF41CE1813A001E8192 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223DEFF21CE1813A001E8192 /* LaunchScreen.storyboard */; };
+		223DEFFC1CE18540001E8192 /* EntriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DEFFB1CE18540001E8192 /* EntriesVC.swift */; };
+		223DEFFE1CE18557001E8192 /* DayByDayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DEFFD1CE18557001E8192 /* DayByDayVC.swift */; };
+		223DF0001CE1856E001E8192 /* AddOrEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DEFFF1CE1856E001E8192 /* AddOrEditVC.swift */; };
+		223DF0021CE18594001E8192 /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF0011CE18594001E8192 /* GridCell.swift */; };
+		223DF0041CE185A4001E8192 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF0031CE185A4001E8192 /* ListCell.swift */; };
+		223DF0091CE18926001E8192 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF0081CE18926001E8192 /* Date+Extension.swift */; };
+		223DF00C1CE189BB001E8192 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF00A1CE189BB001E8192 /* Entry+CoreDataProperties.swift */; };
+		223DF00D1CE189BB001E8192 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF00B1CE189BB001E8192 /* Entry.swift */; };
+		223DF00F1CE1AA33001E8192 /* AddEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223DF00E1CE1AA33001E8192 /* AddEdit.storyboard */; };
+		223DF0121CE1AA51001E8192 /* DayByDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223DF0101CE1AA51001E8192 /* DayByDay.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		223DEFE31CE1813A001E8192 /* DailyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223DEFE61CE1813A001E8192 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		223DEFE81CE1813A001E8192 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		223DEFEB1CE1813A001E8192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		223DEFEE1CE1813A001E8192 /* DailyDiary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DailyDiary.xcdatamodel; sourceTree = "<group>"; };
 		223DEFF01CE1813A001E8192 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		223DEFF31CE1813A001E8192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		223DEFF51CE1813A001E8192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		223DEFFB1CE18540001E8192 /* EntriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntriesVC.swift; sourceTree = "<group>"; };
+		223DEFFD1CE18557001E8192 /* DayByDayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayByDayVC.swift; sourceTree = "<group>"; };
+		223DEFFF1CE1856E001E8192 /* AddOrEditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOrEditVC.swift; sourceTree = "<group>"; };
+		223DF0011CE18594001E8192 /* GridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCell.swift; sourceTree = "<group>"; };
+		223DF0031CE185A4001E8192 /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		223DF0081CE18926001E8192 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		223DF00A1CE189BB001E8192 /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		223DF00B1CE189BB001E8192 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		223DF00E1CE1AA33001E8192 /* AddEdit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddEdit.storyboard; sourceTree = "<group>"; };
+		223DF0111CE1AA51001E8192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DayByDay.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +75,47 @@
 			isa = PBXGroup;
 			children = (
 				223DEFE61CE1813A001E8192 /* AppDelegate.swift */,
-				223DEFE81CE1813A001E8192 /* ViewController.swift */,
 				223DEFEA1CE1813A001E8192 /* Main.storyboard */,
+				223DF0101CE1AA51001E8192 /* DayByDay.storyboard */,
+				223DF00E1CE1AA33001E8192 /* AddEdit.storyboard */,
+				223DF0071CE185CB001E8192 /* Model */,
+				223DF0061CE185BD001E8192 /* Controllers */,
+				223DF0051CE185B4001E8192 /* Views */,
+				223DF0081CE18926001E8192 /* Date+Extension.swift */,
 				223DEFF01CE1813A001E8192 /* Assets.xcassets */,
 				223DEFF21CE1813A001E8192 /* LaunchScreen.storyboard */,
 				223DEFF51CE1813A001E8192 /* Info.plist */,
 				223DEFED1CE1813A001E8192 /* DailyDiary.xcdatamodeld */,
 			);
 			path = DailyDiary;
+			sourceTree = "<group>";
+		};
+		223DF0051CE185B4001E8192 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				223DF0011CE18594001E8192 /* GridCell.swift */,
+				223DF0031CE185A4001E8192 /* ListCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		223DF0061CE185BD001E8192 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				223DEFFD1CE18557001E8192 /* DayByDayVC.swift */,
+				223DEFFF1CE1856E001E8192 /* AddOrEditVC.swift */,
+				223DEFFB1CE18540001E8192 /* EntriesVC.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		223DF0071CE185CB001E8192 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				223DF00A1CE189BB001E8192 /* Entry+CoreDataProperties.swift */,
+				223DF00B1CE189BB001E8192 /* Entry.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +176,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223DF00F1CE1AA33001E8192 /* AddEdit.storyboard in Resources */,
 				223DEFF41CE1813A001E8192 /* LaunchScreen.storyboard in Resources */,
+				223DF0121CE1AA51001E8192 /* DayByDay.storyboard in Resources */,
 				223DEFF11CE1813A001E8192 /* Assets.xcassets in Resources */,
 				223DEFEC1CE1813A001E8192 /* Main.storyboard in Resources */,
 			);
@@ -138,9 +191,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				223DEFE91CE1813A001E8192 /* ViewController.swift in Sources */,
+				223DF00D1CE189BB001E8192 /* Entry.swift in Sources */,
 				223DEFEF1CE1813A001E8192 /* DailyDiary.xcdatamodeld in Sources */,
 				223DEFE71CE1813A001E8192 /* AppDelegate.swift in Sources */,
+				223DEFFC1CE18540001E8192 /* EntriesVC.swift in Sources */,
+				223DF0041CE185A4001E8192 /* ListCell.swift in Sources */,
+				223DEFFE1CE18557001E8192 /* DayByDayVC.swift in Sources */,
+				223DF0091CE18926001E8192 /* Date+Extension.swift in Sources */,
+				223DF00C1CE189BB001E8192 /* Entry+CoreDataProperties.swift in Sources */,
+				223DF0001CE1856E001E8192 /* AddOrEditVC.swift in Sources */,
+				223DF0021CE18594001E8192 /* GridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +221,14 @@
 				223DEFF31CE1813A001E8192 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		223DF0101CE1AA51001E8192 /* DayByDay.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				223DF0111CE1AA51001E8192 /* Base */,
+			);
+			name = DayByDay.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -254,6 +322,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DailyDiary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.samwillsea.DailyDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -265,6 +334,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DailyDiary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.samwillsea.DailyDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -290,6 +360,7 @@
 				223DEFFA1CE1813A001E8192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

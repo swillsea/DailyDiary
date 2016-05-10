@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="m6b-oU-zeE">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--January 5th, 2015-->
+        <scene sceneID="vvF-hl-6yi">
+            <objects>
+                <viewController id="m6b-oU-zeE" customClass="DayByDayVC" customModule="DailyDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qfe-Hu-YWe"/>
+                        <viewControllerLayoutGuide type="bottom" id="gEu-8k-dRL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SKj-Qh-lnB">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="January 5th, 2015" id="aiz-2b-xPB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="ayb-zU-h1E">
+                            <connections>
+                                <segue destination="Oax-of-3EB" kind="show" identifier="toEdit" id="LLr-ww-QVT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO">
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.30326341812823993" green="0.38863270115309595" blue="0.46734068623333347" alpha="1" colorSpace="calibratedRGB"/>
+                    </simulatedNavigationBarMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VmE-hP-u5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="850.5" y="1890.5"/>
+        </scene>
+        <!--AddEdit-->
+        <scene sceneID="BEE-hc-rlK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddEdit" id="Oax-of-3EB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBg-ck-E31" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1361.5" y="1122.5"/>
+        </scene>
+    </scenes>
+</document>
