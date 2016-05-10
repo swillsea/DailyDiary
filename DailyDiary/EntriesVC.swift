@@ -8,15 +8,15 @@
 
 import UIKit
 
-class EntriesVC: UIViewController {
+class EntriesVC: UIViewController, UICollectionViewDataSource {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var layoutButton: UIBarButtonItem!
-    var viewIsListLayout = false
+    var viewIsListLayout = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,12 +25,32 @@ class EntriesVC: UIViewController {
     }
     
 
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1;
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        if viewIsListLayout {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("listCell", forIndexPath: indexPath) as! ListCell
+            
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("gridCell", forIndexPath: indexPath) as! GridCell
+            
+            return cell
+        }
+    }
+    
     @IBAction func onLayoutButtonPressed(sender: UIBarButtonItem) {
         
         if (viewIsListLayout) {
             self.layoutButton.image = UIImage.init(named:"grid")
+            collectionView.reloadData()
+            viewIsListLayout = false
         } else {
             self.layoutButton.image = UIImage.init(named:"list")
+            viewIsListLayout = true
+            collectionView.reloadData()
         }
     }
     
