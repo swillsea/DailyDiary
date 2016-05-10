@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EntriesVC: UIViewController, UICollectionViewDataSource {
+class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var layoutButton: UIBarButtonItem!
@@ -16,27 +16,35 @@ class EntriesVC: UIViewController, UICollectionViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+
+// MARK: CollectionViewLayout
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10;
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsZero
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let collectionViewWidth = collectionView.frame.size.width
 
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1;
+        if viewIsListLayout {
+            return CGSize(width: collectionViewWidth, height: 75)
+        } else {
+            return CGSize(width: collectionViewWidth/3, height: collectionViewWidth/3)
+        }
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if viewIsListLayout {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("listCell", forIndexPath: indexPath) as! ListCell
-            
             return cell
         } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("gridCell", forIndexPath: indexPath) as! GridCell
-            
             return cell
         }
     }
@@ -55,14 +63,11 @@ class EntriesVC: UIViewController, UICollectionViewDataSource {
     }
     
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+// MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
     }
-    */
+
 
 }
