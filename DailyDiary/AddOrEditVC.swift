@@ -13,42 +13,70 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
 
     @IBOutlet weak var entryText: UITextView!
     @IBOutlet weak var entryImageView: UIImageView!
+    var doneEditing = false
+    var moc: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         entryText.becomeFirstResponder()
     }
-
-    @IBAction func onCameraButtonPressed(sender: UIBarButtonItem) {
-        
+    
+    @IBAction func onAddImagePressed(sender: UIButton) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate      = self
         imagePicker.allowsEditing = true
         
         let prompt = UIAlertController(title:nil, message:nil, preferredStyle: .ActionSheet)
-        let firstAction = UIAlertAction(title: "Use Camera", style: .Default) { (alert: UIAlertAction!) -> Void in
+        
+        let cameraAction = UIAlertAction(title: "Use Camera", style: .Default) { (alert: UIAlertAction!) -> Void in
             
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
-            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-            self.presentViewController(imagePicker, animated: true, completion: nil)
+                imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+                self.presentViewController(imagePicker, animated: true, completion: nil)
             }
-
+            
         }
-        let secondAction = UIAlertAction(title: "Choose from Library", style: .Default) { (alert: UIAlertAction!) -> Void in
+        
+        let libraryAction = UIAlertAction(title: "Choose from Library", style: .Default) { (alert: UIAlertAction!) -> Void in
+            
             imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
             self.presentViewController(imagePicker, animated: true, completion: nil)
-
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction) in
-            //do nothing
-        }
-        prompt.addAction(firstAction)
-        prompt.addAction(secondAction)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction) in }
+        
+        prompt.addAction(cameraAction)
+        prompt.addAction(libraryAction)
         prompt.addAction(cancel)
         presentViewController(prompt, animated: true, completion:nil)
         
 
     }
+
+    @IBAction func onEditButtonPressed(sender: UIBarButtonItem) {
+        if !doneEditing {
+            let newEntry = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: self.moc) as! Entry
+            
+            newEntry.text = self.entryText.text
+            newEntry.date = NSDate()
+            newEntry.location = ""
+            if (self.entryImageView.image != nil){
+                newEntry.imageData = UIImageJPEGRepresentation(self.entryImageView.image!, 1)
+            } else {
+                newEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
+            }
+            
+            do {
+                try self.moc.save()
+            } catch let error as NSError {
+                print("Error saving to CoreData \(error)")
+            }
+            
+        }
+        doneEditing = !doneEditing
+    }
+    
+
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
