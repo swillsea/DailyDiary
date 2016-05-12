@@ -22,6 +22,14 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         entryText.becomeFirstResponder()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        do {
+            try self.moc.save()
+        } catch let error as NSError {
+            print("Error saving to CoreData \(error)")
+        }
+    }
+    
     @IBAction func onAddImagePressed(sender: UIButton) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate      = self
@@ -67,12 +75,6 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
             }
             
             newEntry.text = self.entryText.text
-
-            do {
-                try self.moc.save()
-            } catch let error as NSError {
-                print("Error saving to CoreData \(error)")
-            }
             
         } else {
             self.navigationItem.rightBarButtonItem!.title = "Done"
