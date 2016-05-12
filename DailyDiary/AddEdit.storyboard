@@ -58,7 +58,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="4hM-kr-gNS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="bPR-HA-Rai">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="bPR-HA-Rai">
                             <connections>
                                 <action selector="onEditButtonPressed:" destination="0J1-nR-5iK" id="ixT-wU-3qm"/>
                             </connections>

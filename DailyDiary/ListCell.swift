@@ -14,4 +14,18 @@ class ListCell: UICollectionViewCell {
     @IBOutlet weak var entryLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var timeAgoLabel: UILabel!
+    
+    weak var entry : Entry?{
+        didSet {
+            if entry?.imageData != nil {
+                imageView.image = UIImage(data: (entry?.imageData!)!)
+            }
+            entryLabel.text = entry!.text
+            monthLabel.text = "Jun"
+            dayLabel.text = "10"
+            timeAgoLabel.text = entry!.date!.timeAsString()
+            
+        }
+    }
 }

@@ -29,7 +29,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
 
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
         resultsArray = entryResultsController.fetchedObjects! as! [NSManagedObject]
         self.collectionView.reloadData()
     }
@@ -54,19 +54,11 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if viewIsListLayout {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("listCell", forIndexPath: indexPath) as! ListCell
-            let e = resultsArray[indexPath.row] as! Entry
-            if  (e.imageData != nil) {
-            cell.imageView.image = UIImage(data: e.imageData!)
-            }
-            cell.dayLabel.text = e.date!.timeAsString()
-            cell.entryLabel.text = e.text!
+            cell.entry = entryResultsController.objectAtIndexPath(indexPath) as? Entry
             return cell
         } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("gridCell", forIndexPath: indexPath) as! GridCell
-            let e = resultsArray[indexPath.row] as! Entry
-            if  (e.imageData != nil) {
-                cell.imageView.image = UIImage(data: e.imageData!)
-            }
+            cell.entry = entryResultsController.objectAtIndexPath(indexPath) as? Entry
             return cell
         }
     }
@@ -90,8 +82,17 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
         if segue.identifier == "toAddNew" {
-        let destVC = segue.destinationViewController as! AddOrEditVC
-        destVC.moc = self.moc
+            
+            let destVC = segue.destinationViewController as! AddOrEditVC
+            let newEntry = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: self.moc) as! Entry
+            newEntry.text = ""
+            newEntry.date = NSDate()
+            newEntry.location = ""
+            newEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
+
+            destVC.newEntry = newEntry
+            destVC.moc = self.moc
+
         }
         
     }

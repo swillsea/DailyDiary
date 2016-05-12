@@ -10,11 +10,12 @@ import UIKit
 import CoreData
 
 class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-
+ 
     @IBOutlet weak var entryText: UITextView!
     @IBOutlet weak var entryImageView: UIImageView!
     var doneEditing = false
     var moc: NSManagedObjectContext!
+    var newEntry: Entry!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,23 +56,28 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
 
     @IBAction func onEditButtonPressed(sender: UIBarButtonItem) {
         if !doneEditing {
-            let newEntry = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: self.moc) as! Entry
+            self.navigationItem.rightBarButtonItem!.title = "Edit"
+            entryText.resignFirstResponder()
+
             
-            newEntry.text = self.entryText.text
-            newEntry.date = NSDate()
-            newEntry.location = ""
             if (self.entryImageView.image != nil){
                 newEntry.imageData = UIImageJPEGRepresentation(self.entryImageView.image!, 1)
             } else {
                 newEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
             }
             
+            newEntry.text = self.entryText.text
+
             do {
                 try self.moc.save()
             } catch let error as NSError {
                 print("Error saving to CoreData \(error)")
             }
             
+        } else {
+            self.navigationItem.rightBarButtonItem!.title = "Done"
+            entryText.becomeFirstResponder()
+
         }
         doneEditing = !doneEditing
     }
