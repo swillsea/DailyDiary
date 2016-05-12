@@ -82,11 +82,11 @@
 				223DEFEA1CE1813A001E8192 /* Main.storyboard */,
 				223DF0101CE1AA51001E8192 /* DayByDay.storyboard */,
 				223DF00E1CE1AA33001E8192 /* AddEdit.storyboard */,
-				228E7F8E1CE2E161003BF13B /* CoreDataManager.swift */,
+				228E7F901CE448AB003BF13B /* Services */,
 				223DF0071CE185CB001E8192 /* Model */,
 				223DF0061CE185BD001E8192 /* Controllers */,
 				223DF0051CE185B4001E8192 /* Views */,
-				223DF0081CE18926001E8192 /* Date+Extension.swift */,
+				228E7F911CE448B9003BF13B /* Extensions */,
 				223DEFF01CE1813A001E8192 /* Assets.xcassets */,
 				223DEFF21CE1813A001E8192 /* LaunchScreen.storyboard */,
 				223DEFF51CE1813A001E8192 /* Info.plist */,
@@ -122,6 +122,22 @@
 				223DF00B1CE189BB001E8192 /* Entry.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		228E7F901CE448AB003BF13B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				228E7F8E1CE2E161003BF13B /* CoreDataManager.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		228E7F911CE448B9003BF13B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				223DF0081CE18926001E8192 /* Date+Extension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
