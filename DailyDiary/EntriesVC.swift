@@ -22,16 +22,18 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        entryResultsController = CoreDataManager.sharedInstance.fetchCoreData()
-        entryResultsController.delegate = self
-        resultsArray = entryResultsController.fetchedObjects! as! [NSManagedObject]
-
+        self.prepareForCollectionView()
     }
 
     override func viewDidAppear(animated: Bool) {
         resultsArray = entryResultsController.fetchedObjects! as! [NSManagedObject]
         self.collectionView.reloadData()
+    }
+    
+    func prepareForCollectionView() {
+        entryResultsController = CoreDataManager.sharedInstance.fetchCoreData()
+        entryResultsController.delegate = self
+        resultsArray = entryResultsController.fetchedObjects! as! [NSManagedObject]
     }
 
 
