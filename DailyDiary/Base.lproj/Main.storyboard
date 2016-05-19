@@ -38,7 +38,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="119" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="save1" translatesAutoresizingMaskIntoConstraints="NO" id="ewN-Hl-cZh">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ewN-Hl-cZh">
                                                     <rect key="frame" x="0.0" y="0.0" width="119" height="119"/>
                                                 </imageView>
                                             </subviews>
@@ -90,7 +90,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="save1" translatesAutoresizingMaskIntoConstraints="NO" id="koq-1c-wuY">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="koq-1c-wuY">
                                                     <rect key="frame" x="0.0" y="0.0" width="76" height="75"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="1gE-WC-Qb7"/>
@@ -165,9 +165,11 @@
                                         <connections>
                                             <outlet property="dayLabel" destination="3kA-pb-Yav" id="Yxj-Nd-d1o"/>
                                             <outlet property="entryLabel" destination="g79-9Q-qAy" id="YSy-LT-IxU"/>
+                                            <outlet property="entryLabelLeadingConstraint" destination="OPY-RP-4hV" id="UOi-mx-b52"/>
                                             <outlet property="imageView" destination="koq-1c-wuY" id="FzE-AR-oIN"/>
                                             <outlet property="monthLabel" destination="pVY-VO-r99" id="4tq-2F-ytZ"/>
                                             <outlet property="timeAgoLabel" destination="vQh-RG-jKm" id="Tqn-ug-weY"/>
+                                            <outlet property="timeAgoLabelLeadingConstraint" destination="HJ6-mf-XcN" id="GUD-Q8-Ydh"/>
                                             <segue destination="W0O-Wz-W2u" kind="show" identifier="toDayView" id="eeg-TL-ds3"/>
                                         </connections>
                                     </collectionViewCell>
@@ -294,7 +296,6 @@
     <resources>
         <image name="camera" width="33" height="24"/>
         <image name="grid" width="24" height="24"/>
-        <image name="save1" width="1202" height="1202"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eeg-TL-ds3"/>
