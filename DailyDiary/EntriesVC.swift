@@ -34,6 +34,8 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         entryResultsController = CoreDataManager.sharedInstance.fetchCoreData()
         entryResultsController.delegate = self
         resultsArray = entryResultsController.fetchedObjects! as! [NSManagedObject]
+        
+        self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
     }
 
 
@@ -76,10 +78,13 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         if (viewIsListLayout) {
             self.layoutButton.image = UIImage.init(named:"list")
+            self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
             viewIsListLayout = false
             collectionView.reloadData()
         } else {
             self.layoutButton.image = UIImage.init(named:"grid")
+            self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+
             viewIsListLayout = true
             collectionView.reloadData()
         }
