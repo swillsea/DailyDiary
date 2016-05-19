@@ -26,6 +26,8 @@ class ListCell: UICollectionViewCell {
             dayLabel.text = "10"
             timeAgoLabel.text = entry!.date!.timeAsString()
             
+            self.layer.cornerRadius = 4
+            self.clipsToBounds = true
         }
     }
 }

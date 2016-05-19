@@ -45,14 +45,21 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.size.width
-
         if viewIsListLayout {
-            return CGSize(width: collectionViewWidth, height: 75)
+            return CGSize(width: collectionViewWidth-20, height: 75)
         } else {
             return CGSize(width: collectionViewWidth/2, height: collectionViewWidth/2)
         }
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        if viewIsListLayout {
+            return 10
+        } else {
+            return 0
+        }
+    }
+        
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if viewIsListLayout {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("listCell", forIndexPath: indexPath) as! ListCell
@@ -95,6 +102,8 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
             destVC.newEntry = newEntry
             destVC.moc = self.moc
 
+        } else if segue.identifier == "toEdit" {
+            
         }
         
     }

@@ -72,6 +72,8 @@
                     <connections>
                         <outlet property="entryImageView" destination="oN6-dW-tBG" id="6gg-24-gGl"/>
                         <outlet property="entryText" destination="i4s-ZE-T9b" id="u0H-cU-8aT"/>
+                        <outlet property="imageHeightConstraint" destination="Hk2-4B-3vY" id="JLe-H8-RKe"/>
+                        <outlet property="textViewBottomConstraint" destination="ifd-xT-QUs" id="7fe-GX-KXA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8q-ye-hXd" userLabel="First Responder" sceneMemberID="firstResponder"/>

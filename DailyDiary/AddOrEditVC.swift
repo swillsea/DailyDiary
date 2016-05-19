@@ -16,6 +16,8 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
     var doneEditing = false
     var moc: NSManagedObjectContext!
     var newEntry: Entry!
+    @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +72,10 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
             
             if (self.entryImageView.image != nil){
                 newEntry.imageData = UIImageJPEGRepresentation(self.entryImageView.image!, 1)
+                self.imageHeightConstraint.constant = self.view.frame.width
+                self.textViewBottomConstraint.constant = 20
+
+
             } else {
                 newEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
             }
@@ -79,6 +85,8 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         } else {
             self.navigationItem.rightBarButtonItem!.title = "Done"
             entryText.becomeFirstResponder()
+            self.imageHeightConstraint.constant = 50
+            self.textViewBottomConstraint.constant = 260
 
         }
         doneEditing = !doneEditing
