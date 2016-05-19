@@ -23,7 +23,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ul2-YA-2io">
                                 <rect key="frame" x="-4" y="0.0" width="383" height="603"/>
-                                <color key="backgroundColor" red="0.30326341810000002" green="0.38863270119999999" blue="0.46734068620000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.82607460529999999" green="0.90109195600000003" blue="0.90546479160000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="4ei-C5-XID">
                                     <size key="itemSize" width="156" height="153"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -130,7 +130,7 @@
                                                         <constraint firstAttribute="height" constant="17" id="uUL-a2-Z5j"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" red="0.30326341810000002" green="0.38863270119999999" blue="0.46734068620000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.30509507656097412" green="0.40414318442344666" blue="0.40679168701171875" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -224,7 +224,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.30326341812823993" green="0.38863270115309595" blue="0.46734068623333347" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.96898293495178223" green="0.59914892911911011" blue="0.61502033472061157" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -274,7 +274,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.30326341810000002" green="0.38863270119999999" blue="0.46734068620000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.96898293499999999" green="0.59914892909999995" blue="0.61502033469999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="iY9-gb-4PF" firstAttribute="centerX" secondItem="ztH-9L-rzn" secondAttribute="centerX" id="I7b-aW-gpi"/>
                             <constraint firstItem="iY9-gb-4PF" firstAttribute="centerY" secondItem="ztH-9L-rzn" secondAttribute="centerY" id="xGE-XB-II5"/>
