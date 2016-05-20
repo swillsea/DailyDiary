@@ -34,6 +34,8 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         entryResultsController = CoreDataManager.sharedInstance.fetchCoreData()
         entryResultsController.delegate = self
         resultsArray = entryResultsController.fetchedObjects! as! [NSManagedObject]
+        
+        self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
     }
 
 
@@ -45,14 +47,21 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.size.width
-
         if viewIsListLayout {
-            return CGSize(width: collectionViewWidth, height: 75)
+            return CGSize(width: collectionViewWidth-20, height: 75)
         } else {
             return CGSize(width: collectionViewWidth/2, height: collectionViewWidth/2)
         }
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        if viewIsListLayout {
+            return 10
+        } else {
+            return 0
+        }
+    }
+        
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if viewIsListLayout {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("listCell", forIndexPath: indexPath) as! ListCell
@@ -69,10 +78,13 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         if (viewIsListLayout) {
             self.layoutButton.image = UIImage.init(named:"list")
+            self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
             viewIsListLayout = false
             collectionView.reloadData()
         } else {
             self.layoutButton.image = UIImage.init(named:"grid")
+            self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+
             viewIsListLayout = true
             collectionView.reloadData()
         }
@@ -95,6 +107,8 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
             destVC.newEntry = newEntry
             destVC.moc = self.moc
 
+        } else if segue.identifier == "toEdit" {
+            
         }
         
     }

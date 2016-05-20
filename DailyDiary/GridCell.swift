@@ -15,7 +15,11 @@ class GridCell: UICollectionViewCell {
     weak var entry : Entry?{
         didSet {
             if entry?.imageData != nil{
-            imageView.image = UIImage(data: (entry?.imageData!)!)
+                
+                imageView.image = UIImage(data: (entry?.imageData!)!)
+                
+                self.layer.cornerRadius = 4
+                self.clipsToBounds = true
             }
             
         }

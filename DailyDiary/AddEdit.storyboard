@@ -28,7 +28,9 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybx-mv-ZYi">
                                 <rect key="frame" x="130" y="8" width="116" height="30"/>
-                                <state key="normal" title="Add Image"/>
+                                <state key="normal" title="Add Image">
+                                    <color key="titleColor" red="0.96898293499999999" green="0.59914892909999995" blue="0.61502033469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onAddImagePressed:" destination="0J1-nR-5iK" eventType="touchUpInside" id="ME6-WZ-ZEt"/>
                                 </connections>
@@ -72,6 +74,8 @@
                     <connections>
                         <outlet property="entryImageView" destination="oN6-dW-tBG" id="6gg-24-gGl"/>
                         <outlet property="entryText" destination="i4s-ZE-T9b" id="u0H-cU-8aT"/>
+                        <outlet property="imageHeightConstraint" destination="Hk2-4B-3vY" id="JLe-H8-RKe"/>
+                        <outlet property="textViewBottomConstraint" destination="ifd-xT-QUs" id="7fe-GX-KXA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8q-ye-hXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
