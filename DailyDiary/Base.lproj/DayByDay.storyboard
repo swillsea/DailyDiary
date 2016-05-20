@@ -8,7 +8,7 @@
         <!--January 5th, 2015-->
         <scene sceneID="vvF-hl-6yi">
             <objects>
-                <viewController id="m6b-oU-zeE" customClass="DayByDayVC" customModule="DailyDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DayByDay" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m6b-oU-zeE" customClass="DayByDayVC" customModule="DailyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qfe-Hu-YWe"/>
                         <viewControllerLayoutGuide type="bottom" id="gEu-8k-dRL"/>
@@ -38,10 +38,10 @@
         <!--AddEdit-->
         <scene sceneID="BEE-hc-rlK">
             <objects>
-                <viewControllerPlaceholder storyboardName="AddEdit" id="Oax-of-3EB" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="AddEdit" storyboardName="AddEdit" id="Oax-of-3EB" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBg-ck-E31" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1361.5" y="1122.5"/>
+            <point key="canvasLocation" x="1179" y="1891"/>
         </scene>
     </scenes>
 </document>

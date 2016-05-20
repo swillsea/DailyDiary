@@ -7,33 +7,90 @@
 //
 
 import UIKit
+import CoreData
 
-class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate {
-
+class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+ 
     @IBOutlet weak var entryText: UITextView!
+    @IBOutlet weak var entryImageView: UIImageView!
+    var doneEditing = false
+    var moc: NSManagedObjectContext!
+    var newEntry: Entry!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        entryText.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        do {
+            try self.moc.save()
+        } catch let error as NSError {
+            print("Error saving to CoreData \(error)")
+        }
+    }
+    
+    @IBAction func onAddImagePressed(sender: UIButton) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate      = self
+        imagePicker.allowsEditing = true
+        
+        let prompt = UIAlertController(title:nil, message:nil, preferredStyle: .ActionSheet)
+        
+        let cameraAction = UIAlertAction(title: "Use Camera", style: .Default) { (alert: UIAlertAction!) -> Void in
+            
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
+                imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+                self.presentViewController(imagePicker, animated: true, completion: nil)
+            }
+            
+        }
+        
+        let libraryAction = UIAlertAction(title: "Choose from Library", style: .Default) { (alert: UIAlertAction!) -> Void in
+            
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction) in }
+        
+        prompt.addAction(cameraAction)
+        prompt.addAction(libraryAction)
+        prompt.addAction(cancel)
+        presentViewController(prompt, animated: true, completion:nil)
+        
 
+    }
+
+    @IBAction func onEditButtonPressed(sender: UIBarButtonItem) {
+        if !doneEditing {
+            self.navigationItem.rightBarButtonItem!.title = "Edit"
+            entryText.resignFirstResponder()
+
+            
+            if (self.entryImageView.image != nil){
+                newEntry.imageData = UIImageJPEGRepresentation(self.entryImageView.image!, 1)
+            } else {
+                newEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
+            }
+            
+            newEntry.text = self.entryText.text
+            
+        } else {
+            self.navigationItem.rightBarButtonItem!.title = "Done"
+            entryText.becomeFirstResponder()
+
+        }
+        doneEditing = !doneEditing
+    }
+    
+
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        self.entryImageView.image = image
+        self.dismissViewControllerAnimated(true, completion: nil)
         entryText.becomeFirstResponder()
     }
 
-    @IBAction func onCameraButtonPressed(sender: UIBarButtonItem) {
-        
-        let prompt = UIAlertController(title:nil, message:nil, preferredStyle: .ActionSheet)
-        let firstAction = UIAlertAction(title: "Use Camera", style: .Default) { (alert: UIAlertAction!) -> Void in
-            //launch cameraVC
-        }
-        let secondAction = UIAlertAction(title: "Choose from Library", style: .Default) { (alert: UIAlertAction!) -> Void in
-            //launch importVC
-        }
-        let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction) in
-            //do nothing
-        }
-        prompt.addAction(firstAction)
-        prompt.addAction(secondAction)
-        prompt.addAction(cancel)
-        presentViewController(prompt, animated: true, completion:nil)
-    }
-    
 }
