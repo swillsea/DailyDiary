@@ -59,4 +59,19 @@ extension NSDate {
         
     }
     
+    func month () -> String {
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMM"
+        let month = dateFormatter.stringFromDate(self)
+        return month
+    }
+    
+    func day () -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd"
+        let day = dateFormatter.stringFromDate(self)
+        return day
+    }
+    
 }

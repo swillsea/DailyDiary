@@ -18,8 +18,8 @@ class GridCell: UICollectionViewCell {
                 
                 imageView.image = UIImage(data: (entry?.imageData!)!)
                 
-                self.layer.cornerRadius = 4
-                self.clipsToBounds = true
+                self.imageView.layer.cornerRadius = 20
+                self.imageView.clipsToBounds = true
             }
             
         }

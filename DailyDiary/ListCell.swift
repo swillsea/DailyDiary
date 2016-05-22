@@ -31,10 +31,10 @@ class ListCell: UICollectionViewCell {
                 entryLabelLeadingConstraint.constant   = -imageView.frame.width + 10
             }
             entryLabel.text = entry!.text
-            monthLabel.text = "Jun"
-            dayLabel.text = "10"
-            let timeSinceCreated = entry!.date!.timeAsString()
-            self.timeAgoLabel.text = timeSinceCreated + "       " + "\(numberOfWordsInEntry())"
+            monthLabel.text = entry!.date!.month()
+            dayLabel.text = entry!.date!.day()
+//            let timeSinceCreated = entry!.date!.timeAsString()
+            self.timeAgoLabel.text = "\(numberOfWordsInEntry())"
             self.layer.cornerRadius = 4
             self.clipsToBounds = true
         }

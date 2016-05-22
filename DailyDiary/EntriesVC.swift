@@ -61,7 +61,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
             return 0
         }
     }
-        
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if viewIsListLayout {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("listCell", forIndexPath: indexPath) as! ListCell
@@ -78,13 +78,12 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         if (viewIsListLayout) {
             self.layoutButton.image = UIImage.init(named:"list")
-            self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+            self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
             viewIsListLayout = false
             collectionView.reloadData()
         } else {
             self.layoutButton.image = UIImage.init(named:"grid")
             self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
-
             viewIsListLayout = true
             collectionView.reloadData()
         }
