@@ -80,13 +80,15 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
             self.layoutButton.image = UIImage.init(named:"list")
             self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
             viewIsListLayout = false
-            collectionView.reloadData()
         } else {
             self.layoutButton.image = UIImage.init(named:"grid")
             self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
             viewIsListLayout = true
-            collectionView.reloadData()
         }
+        
+        self.collectionView.reloadData()
+
+        
     }
     
     

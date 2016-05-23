@@ -27,6 +27,8 @@ class ListCell: UICollectionViewCell {
                 entryLabelLeadingConstraint.constant   = 10
                 
             } else {
+                imageView.image = nil;
+                
                 timeAgoLabelLeadingConstraint.constant = -imageView.frame.width + 10
                 entryLabelLeadingConstraint.constant   = -imageView.frame.width + 10
             }
