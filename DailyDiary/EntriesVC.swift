@@ -105,7 +105,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
             newEntry.location = ""
             newEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
 
-            destVC.newEntry = newEntry
+            destVC.currentEntry = newEntry
             destVC.moc = self.moc
 
         } else if segue.identifier == "toEdit" {
