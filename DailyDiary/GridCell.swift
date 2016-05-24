@@ -15,12 +15,15 @@ class GridCell: UICollectionViewCell {
     weak var entry : Entry?{
         didSet {
             if entry?.imageData != nil{
-                
                 imageView.image = UIImage(data: (entry?.imageData!)!)
                 
-                self.layer.cornerRadius = 4
-                self.clipsToBounds = true
+            } else {
+                imageView.image = nil;
+                imageView.backgroundColor = UIColor.init(colorLiteralRed: 168/255, green: 196/255, blue: 199/255, alpha: 1.0)
             }
+            
+            self.imageView.layer.cornerRadius = 20
+            self.imageView.clipsToBounds = true
             
         }
     }
