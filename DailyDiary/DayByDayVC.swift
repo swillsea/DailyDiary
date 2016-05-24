@@ -7,29 +7,59 @@
 //
 
 import UIKit
+import CoreData
 
 class DayByDayVC: UIViewController {
-
+    var resultsArray : [NSManagedObject]!
+    //var selectedEntry: Entry!
+    var index:NSInteger!
+    @IBOutlet var timeTextField: UITextField!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if self.resultsArray.count != 0 {
+            let entry = resultsArray[self.index] as! Entry
+            self.showDiaryWithEntry(entry)
+        } else {
+            self.timeTextField.text = "May 18, 2016"
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func onLeftButtonPressed(sender: UIButton) {
+        if self.index == 0 {
+        } else {
+            let entry = resultsArray[self.index-1] as! Entry
+            self.showDiaryWithEntry(entry)
+            self.index = self.index - 1
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func onRightButtonPressed(sender: UIButton) {
+        if self.index == self.resultsArray.count-1 {
+        } else {
+            let entry = resultsArray[self.index+1] as! Entry
+            self.showDiaryWithEntry(entry)
+            self.index = self.index + 1
+        }
     }
-    */
+    
+    @IBAction func onDismissButtonPressed(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func showDiaryWithEntry(entry:Entry) {
+        let dateFormat = NSDateFormatter()
+        dateFormat.dateStyle = .MediumStyle
+        self.timeTextField.text = dateFormat.stringFromDate(entry.date!)
+        if entry.imageData != nil {
+            self.imageView.image = UIImage(data:entry.imageData!)
+        } else {
+            self.imageView.image = nil
+        }
+        self.textView.text = entry.text
+
+    }
 
 }
