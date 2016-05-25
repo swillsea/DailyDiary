@@ -101,6 +101,14 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
             let destVC = segue.destinationViewController as! AddOrEditVC
             destVC.moc = self.moc
 
+        } else if segue.identifier == "toEdit" {
+            
+        } else if segue.identifier == "toDayView" {
+            let destVC = segue.destinationViewController as! DayByDayVC
+            destVC.resultsArray = resultsArray
+            let indexpath = self.collectionView.indexPathsForSelectedItems()![0]
+            //let entry = resultsArray[indexpath.row] as! Entry
+            destVC.index = indexpath.row
         }
     }
 }
