@@ -22,10 +22,11 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.prepareForCollectionView()
+        prepareForCollectionView()
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         resultsArray = entryResultsController.fetchedObjects! as! [NSManagedObject]
         self.collectionView.reloadData()
     }
@@ -96,23 +97,10 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
 // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
-        if segue.identifier == "toAddNew" {
-            
+        if segue.identifier == "toAddNew" {            
             let destVC = segue.destinationViewController as! AddOrEditVC
-            let newEntry = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: self.moc) as! Entry
-            newEntry.text = ""
-            newEntry.date = NSDate()
-            newEntry.location = ""
-            newEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
-
-            destVC.currentEntry = newEntry
             destVC.moc = self.moc
 
-        } else if segue.identifier == "toEdit" {
-            
         }
-        
     }
-
-
 }
