@@ -136,13 +136,14 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
             
             for change in self.sectionChanges {
                 change.enumerateKeysAndObjectsUsingBlock({ (key, obj, stop) in
-                    let type = key as! NSFetchedResultsChangeType
-                    switch type {
+                    switch key {
                     case NSFetchedResultsChangeType.Insert:
                         self.collectionView.insertSections(NSIndexSet.init(indexSet: obj as! NSIndexSet))
                         break;
                     case NSFetchedResultsChangeType.Delete:
                         self.collectionView.deleteSections(NSIndexSet.init(indexSet: obj as! NSIndexSet))
+                        break;
+                    default:
                         break;
                     }
                 })
