@@ -45,18 +45,33 @@ extension NSDate {
             
             displayDate = String(format: "%.0f hours ago", (timeSinceTaken/3600) )
             
+        } else if timeSinceTaken < 2 * aDay {
+
+            displayDate = String(format: "One day ago")
+
         } else {
-            //returns the day of year if taken longer than a day ago
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateStyle = .MediumStyle
-            dateFormatter.timeStyle = .NoStyle
             
-            dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
-            displayDate = "\(dateFormatter.stringFromDate(self))"
+            displayDate = String(format: "%.0f days ago", (timeSinceTaken/86400) )
+
         }
         
         return displayDate
         
+    }
+    
+    func month () -> String {
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMM"
+        let month = dateFormatter.stringFromDate(self)
+        return month
+    }
+    
+    func day () -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd"
+        let day = dateFormatter.stringFromDate(self)
+        return day
     }
     
 }

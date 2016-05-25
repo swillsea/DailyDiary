@@ -15,13 +15,21 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
     @IBOutlet weak var entryImageView: UIImageView!
     var doneEditing = false
     var moc: NSManagedObjectContext!
-    var newEntry: Entry!
+    var currentEntry: Entry!
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         entryText.becomeFirstResponder()
+        self.displayEntryDate()
+    }
+    
+    func displayEntryDate() {
+        let today = currentEntry.date! as NSDate
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        self.title = dateFormatter.stringFromDate(today)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -71,16 +79,16 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
 
             
             if (self.entryImageView.image != nil){
-                newEntry.imageData = UIImageJPEGRepresentation(self.entryImageView.image!, 1)
+                currentEntry.imageData = UIImageJPEGRepresentation(self.entryImageView.image!, 1)
                 self.imageHeightConstraint.constant = self.view.frame.width
                 self.textViewBottomConstraint.constant = 20
 
 
             } else {
-                newEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
+                currentEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
             }
             
-            newEntry.text = self.entryText.text
+            currentEntry.text = self.entryText.text
             
         } else {
             self.navigationItem.rightBarButtonItem!.title = "Done"
