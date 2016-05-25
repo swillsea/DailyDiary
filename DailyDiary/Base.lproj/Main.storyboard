@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T3w-Mu-fYj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T3w-Mu-fYj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -53,7 +53,7 @@
                                         <size key="customSize" width="119" height="119"/>
                                         <connections>
                                             <outlet property="imageView" destination="ewN-Hl-cZh" id="ese-I1-dDL"/>
-                                            <segue destination="W0O-Wz-W2u" kind="show" identifier="toDayView" id="fVg-nH-MO9"/>
+                                            <segue destination="W0O-Wz-W2u" kind="modal" identifier="toDayView" id="fVg-nH-MO9"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="listCell" id="0qe-UF-5i2" customClass="ListCell" customModule="DailyDiary" customModuleProvider="target">
@@ -158,7 +158,7 @@
                                             <outlet property="monthLabel" destination="pVY-VO-r99" id="4tq-2F-ytZ"/>
                                             <outlet property="timeAgoLabel" destination="vQh-RG-jKm" id="Tqn-ug-weY"/>
                                             <outlet property="timeAgoLabelLeadingConstraint" destination="HJ6-mf-XcN" id="GUD-Q8-Ydh"/>
-                                            <segue destination="W0O-Wz-W2u" kind="show" identifier="toDayView" id="eeg-TL-ds3"/>
+                                            <segue destination="W0O-Wz-W2u" kind="modal" identifier="toDayView" id="eeg-TL-ds3"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -214,7 +214,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.96898293495178223" green="0.59914892911911011" blue="0.61502033472061157" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.96862745098039216" green="0.59999999999999998" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -242,7 +242,7 @@
                 <viewControllerPlaceholder storyboardName="DayByDay" id="W0O-Wz-W2u" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0T-Jk-q7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="850" y="1573"/>
+            <point key="canvasLocation" x="846" y="1573"/>
         </scene>
         <!--Animation View Controller-->
         <scene sceneID="SXT-ap-iZJ">
@@ -286,6 +286,6 @@
         <image name="grid" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eeg-TL-ds3"/>
+        <segue reference="fVg-nH-MO9"/>
     </inferredMetricsTieBreakers>
 </document>
