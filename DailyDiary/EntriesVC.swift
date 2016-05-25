@@ -162,7 +162,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
                         self.collectionView.reloadItemsAtIndexPaths([obj as! NSIndexPath])
                         break;
                     case NSFetchedResultsChangeType.Move:
-                        self.collectionView.moveItemAtIndexPath(obj[0] as! NSIndexPath, toIndexPath: obj[1] as! NSIndexPath)
+                        self.collectionView.moveItemAtIndexPath(obj.objectAtIndex(0) as! NSIndexPath, toIndexPath: obj.objectAtIndex(1) as! NSIndexPath)
                         break;
                     default:
                         break;
