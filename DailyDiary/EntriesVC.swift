@@ -11,20 +11,23 @@ import CoreData
 
 
 class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var layoutButton: UIBarButtonItem!
     var viewIsListLayout = true
     let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var entryResultsController: NSFetchedResultsController!
     var resultsArray : [NSManagedObject]!
+    var sectionChanges = NSMutableArray()
+    var itemChanges = NSMutableArray()
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareForCollectionView()
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         resultsArray = entryResultsController.fetchedObjects! as! [NSManagedObject]
@@ -38,9 +41,9 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
     }
-
-
-// MARK: CollectionViewLayout
+    
+    
+    // MARK: CollectionViewLayout
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (resultsArray != nil) { return resultsArray.count }
         else { return 0 }
@@ -88,19 +91,97 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         }
         
         self.collectionView.reloadData()
-
+        
         
     }
     
+//MARK: Required to use NSFetchedResultsController with UICollectionView
+    func controller(controller: NSFetchedResultsController, didChangeSection
+        sectionInfo: NSFetchedResultsSectionInfo, atIndex
+        sectionIndex: Int, forChangeType
+        type: NSFetchedResultsChangeType) {
+        
+        let change = NSMutableDictionary()
+        change.setObject(sectionIndex, forKey:"type")
+        sectionChanges.addObject(change)
+    }
     
-
-// MARK: - Navigation
+    func controller(controller: NSFetchedResultsController,
+                    didChangeObject anObject: AnyObject,
+                       atIndexPath indexPath: NSIndexPath?,
+                          forChangeType type: NSFetchedResultsChangeType,
+                                newIndexPath: NSIndexPath?) {
+        
+        let change = NSMutableDictionary()
+        
+        switch type {
+        case NSFetchedResultsChangeType.Insert:
+            change.setObject(newIndexPath!, forKey:"type")
+            break;
+        case NSFetchedResultsChangeType.Delete:
+            change.setObject(indexPath!, forKey:"type")
+            break;
+        case NSFetchedResultsChangeType.Update:
+            change.setObject(indexPath!, forKey:"type")
+            break;
+        case NSFetchedResultsChangeType.Move:
+            change.setObject([indexPath!, newIndexPath!], forKey:"type")
+            break;
+        }
+        itemChanges .addObject(change)
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.collectionView.performBatchUpdates({
+            
+            for change in self.sectionChanges {
+                change.enumerateKeysAndObjectsUsingBlock({ (key, obj, stop) in
+                    let type = key as! NSFetchedResultsChangeType
+                    switch type {
+                    case NSFetchedResultsChangeType.Insert:
+                        self.collectionView.insertSections(NSIndexSet.init(indexSet: obj as! NSIndexSet))
+                        break;
+                    case NSFetchedResultsChangeType.Delete:
+                        self.collectionView.deleteSections(NSIndexSet.init(indexSet: obj as! NSIndexSet))
+                        break;
+                    }
+                })
+            }
+            
+            for change in self.itemChanges {
+                change.enumerateKeysAndObjectsUsingBlock({ (key, obj, stop) in
+                    switch key {
+                    case NSFetchedResultsChangeType.Insert:
+                        self.collectionView.insertItemsAtIndexPaths([obj as! NSIndexPath])
+                        break;
+                    case NSFetchedResultsChangeType.Delete:
+                        self.collectionView.deleteItemsAtIndexPaths([obj as! NSIndexPath])
+                        break;
+                    case NSFetchedResultsChangeType.Update:
+                        self.collectionView.reloadItemsAtIndexPaths([obj as! NSIndexPath])
+                        break;
+                    case NSFetchedResultsChangeType.Move:
+                        self.collectionView.moveItemAtIndexPath(obj[0] as! NSIndexPath, toIndexPath: obj[1] as! NSIndexPath)
+                        break;
+                    default:
+                        break;
+                    }
+                })
+            }
+            
+        }) { (Bool) in
+            self.sectionChanges.removeAllObjects()
+            self.itemChanges.removeAllObjects()
+        }
+    }
+    
+    // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    
-        if segue.identifier == "toAddNew" {            
+        
+        if segue.identifier == "toAddNew" {
             let destVC = segue.destinationViewController as! AddOrEditVC
             destVC.moc = self.moc
-
+            
         } else if segue.identifier == "toEdit" {
             
         } else if segue.identifier == "toDayView" {

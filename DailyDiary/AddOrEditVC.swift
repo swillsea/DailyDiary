@@ -18,7 +18,8 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
     var currentEntry: Entry!
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
-    
+
+//MARK: View Setup
     override func viewDidLoad() {
         super.viewDidLoad()
         entryText.becomeFirstResponder()
@@ -27,16 +28,19 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
     
     func displayEntryDate() {
         let today: NSDate
+        
         if (currentEntry != nil) {
             today = currentEntry.date! as NSDate
         } else {
             today = NSDate()
         }
+        
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"
         self.title = dateFormatter.stringFromDate(today)
     }
     
+//MARK: CoreData Interactions
     func saveOrUpdate() {
         if currentEntry != nil {
             updateEntry()
@@ -70,6 +74,7 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         }
     }
     
+//MARK: Actions
     @IBAction func onAddImagePressed(sender: UIButton) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate      = self
@@ -119,8 +124,7 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         }
         doneEditing = !doneEditing
     }
-    
-    
+        
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         self.entryImageView.image = image
