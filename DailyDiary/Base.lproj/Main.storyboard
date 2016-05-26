@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T3w-Mu-fYj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T3w-Mu-fYj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -53,7 +53,7 @@
                                         <size key="customSize" width="119" height="119"/>
                                         <connections>
                                             <outlet property="imageView" destination="ewN-Hl-cZh" id="ese-I1-dDL"/>
-                                            <segue destination="W0O-Wz-W2u" kind="modal" identifier="toDayView" id="fVg-nH-MO9"/>
+                                            <segue destination="W0O-Wz-W2u" kind="presentation" identifier="toDayView" modalTransitionStyle="coverVertical" id="fVg-nH-MO9"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="listCell" id="0qe-UF-5i2" customClass="ListCell" customModule="DailyDiary" customModuleProvider="target">
@@ -158,7 +158,7 @@
                                             <outlet property="monthLabel" destination="pVY-VO-r99" id="4tq-2F-ytZ"/>
                                             <outlet property="timeAgoLabel" destination="vQh-RG-jKm" id="Tqn-ug-weY"/>
                                             <outlet property="timeAgoLabelLeadingConstraint" destination="HJ6-mf-XcN" id="GUD-Q8-Ydh"/>
-                                            <segue destination="W0O-Wz-W2u" kind="modal" identifier="toDayView" id="eeg-TL-ds3"/>
+                                            <segue destination="W0O-Wz-W2u" kind="presentation" identifier="toDayView" modalTransitionStyle="crossDissolve" id="eeg-TL-ds3"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -256,7 +256,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="Main" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-gb-4PF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="Main" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-gb-4PF">
                                 <rect key="frame" x="168" y="314" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="MU5-g4-4P9"/>
@@ -282,7 +282,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera" width="33" height="24"/>
+        <image name="Logo" width="60" height="60"/>
         <image name="grid" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>

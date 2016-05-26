@@ -11,17 +11,18 @@ import CoreData
 
 class DayByDayVC: UIViewController {
     var resultsArray : [NSManagedObject]!
-    //var selectedEntry: Entry!
+    var selectedEntry: Entry!
     var index:NSInteger!
     @IBOutlet var timeTextField: UITextField!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var textView: UITextView!
+    var moc: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if self.resultsArray.count != 0 {
-            let entry = resultsArray[self.index] as! Entry
-            self.showDiaryWithEntry(entry)
+            self.selectedEntry = resultsArray[self.index] as! Entry
+            self.showDiaryWithEntry(self.selectedEntry)
         } else {
             self.timeTextField.text = "May 18, 2016"
         }
@@ -30,8 +31,8 @@ class DayByDayVC: UIViewController {
     @IBAction func onLeftButtonPressed(sender: UIButton) {
         if self.index == 0 {
         } else {
-            let entry = resultsArray[self.index-1] as! Entry
-            self.showDiaryWithEntry(entry)
+            self.selectedEntry = resultsArray[self.index-1] as! Entry
+            self.showDiaryWithEntry(self.selectedEntry)
             self.index = self.index - 1
         }
     }
@@ -39,8 +40,8 @@ class DayByDayVC: UIViewController {
     @IBAction func onRightButtonPressed(sender: UIButton) {
         if self.index == self.resultsArray.count-1 {
         } else {
-            let entry = resultsArray[self.index+1] as! Entry
-            self.showDiaryWithEntry(entry)
+            self.selectedEntry = resultsArray[self.index+1] as! Entry
+            self.showDiaryWithEntry(self.selectedEntry)
             self.index = self.index + 1
         }
     }
@@ -60,6 +61,15 @@ class DayByDayVC: UIViewController {
         }
         self.textView.text = entry.text
 
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let navigationController = segue.destinationViewController as! UINavigationController
+        let destVC = navigationController.topViewController as! AddOrEditVC // since we're going to a navigation controller
+        
+        destVC.moc = self.moc
+        destVC.currentEntry = self.selectedEntry
+        
     }
 
 }

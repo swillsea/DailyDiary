@@ -17,7 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.setupNavigationAppearanceAcrossApp()
         return true
+    }
+    
+    func setupNavigationAppearanceAcrossApp() {
+        let navigationBarAppearance = UINavigationBar.appearance
+        navigationBarAppearance().barTintColor = UIColor.init(red: 247/255, green: 153/255, blue: 157/255, alpha: 1)
+        navigationBarAppearance().tintColor = UIColor.whiteColor();
+        let attributes = Dictionary.init(dictionaryLiteral:(NSForegroundColorAttributeName,UIColor.whiteColor()))
+        navigationBarAppearance().titleTextAttributes = attributes
+    
     }
 
     func applicationWillResignActive(application: UIApplication) {

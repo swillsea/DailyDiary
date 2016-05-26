@@ -22,22 +22,27 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
 //MARK: View Setup
     override func viewDidLoad() {
         super.viewDidLoad()
+        displayCorrectEntry()
         entryText.becomeFirstResponder()
-        self.displayEntryDate()
     }
     
-    func displayEntryDate() {
-        let today: NSDate
-        
-        if (currentEntry != nil) {
-            today = currentEntry.date! as NSDate
+    func displayCorrectEntry(){
+        if currentEntry != nil {
+            displayEntryDate(currentEntry.date!)
+            self.entryText.text = self.currentEntry.text
+            if currentEntry.imageData != nil{
+                self.entryImageView.image = UIImage.init(data: self.currentEntry.imageData!)
+            }
         } else {
-            today = NSDate()
+            let today = NSDate()
+            displayEntryDate(today)
         }
-        
+    }
+    
+    func displayEntryDate(date: NSDate) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"
-        self.title = dateFormatter.stringFromDate(today)
+        self.title = dateFormatter.stringFromDate(date)
     }
     
 //MARK: CoreData Interactions
@@ -72,6 +77,7 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         } else {
             newEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
         }
+        currentEntry = newEntry
     }
     
 //MARK: Actions
@@ -104,6 +110,10 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         prompt.addAction(cancel)
         presentViewController(prompt, animated: true, completion:nil)
         
+    }
+    @IBAction func onBackButtonPressed(sender: UIBarButtonItem) {
+        self.entryText.resignFirstResponder()
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func onEditButtonPressed(sender: UIBarButtonItem) {

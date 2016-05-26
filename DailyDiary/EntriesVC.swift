@@ -90,9 +90,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
             viewIsListLayout = true
         }
         
-        self.collectionView.reloadData()
-        
-        
+        self.collectionView.reloadData()        
     }
     
 //MARK: Required to use NSFetchedResultsController with UICollectionView
@@ -180,10 +178,10 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "toAddNew" {
-            let destVC = segue.destinationViewController as! AddOrEditVC
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let destVC = navigationController.topViewController as! AddOrEditVC // since we're going to a navigation controller
+
             destVC.moc = self.moc
-            
-        } else if segue.identifier == "toEdit" {
             
         } else if segue.identifier == "toDayView" {
             let destVC = segue.destinationViewController as! DayByDayVC
@@ -191,6 +189,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
             let indexpath = self.collectionView.indexPathsForSelectedItems()![0]
             //let entry = resultsArray[indexpath.row] as! Entry
             destVC.index = indexpath.row
+            destVC.moc = self.moc
         }
     }
 }
