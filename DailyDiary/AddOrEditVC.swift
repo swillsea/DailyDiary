@@ -124,7 +124,10 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
                 self.imageHeightConstraint.constant = self.view.frame.width
                 self.textViewBottomConstraint.constant = 20
             }
-            saveOrUpdate()
+            if (self.entryText.text.characters.count > 0 || self.entryImageView.image != nil){
+                saveOrUpdate()
+            }
+            
         } else {
             self.navigationItem.rightBarButtonItem!.title = "Done"
             entryText.becomeFirstResponder()

@@ -49,24 +49,14 @@
                         <constraints>
                             <constraint firstItem="i4s-ZE-T9b" firstAttribute="leading" secondItem="YkJ-p7-61a" secondAttribute="leadingMargin" constant="-4" id="Ioz-jT-u7u"/>
                             <constraint firstItem="i4s-ZE-T9b" firstAttribute="top" secondItem="oN6-dW-tBG" secondAttribute="bottom" constant="10" id="Lk6-yL-iqa"/>
-                            <constraint firstItem="oN6-dW-tBG" firstAttribute="top" secondItem="YkJ-p7-61a" secondAttribute="topMargin" id="T44-oi-6Rw"/>
+                            <constraint firstItem="oN6-dW-tBG" firstAttribute="top" secondItem="OEs-B7-mZ6" secondAttribute="bottom" id="PBi-gq-jnk"/>
                             <constraint firstItem="i4s-ZE-T9b" firstAttribute="trailing" secondItem="YkJ-p7-61a" secondAttribute="trailingMargin" constant="20" id="Ukk-gy-PeZ"/>
                             <constraint firstItem="Ybx-mv-ZYi" firstAttribute="top" secondItem="OEs-B7-mZ6" secondAttribute="bottom" constant="8" id="YYG-62-zVW"/>
                             <constraint firstItem="Ybx-mv-ZYi" firstAttribute="centerX" secondItem="YkJ-p7-61a" secondAttribute="centerX" id="bZe-VE-4oN"/>
-                            <constraint firstItem="Ybx-mv-ZYi" firstAttribute="leading" secondItem="YkJ-p7-61a" secondAttribute="leadingMargin" constant="20" id="cMp-bD-CRG"/>
-                            <constraint firstItem="oN6-dW-tBG" firstAttribute="top" secondItem="OEs-B7-mZ6" secondAttribute="bottom" id="dcw-uB-FJ9"/>
-                            <constraint firstItem="i4s-ZE-T9b" firstAttribute="top" secondItem="OEs-B7-mZ6" secondAttribute="bottom" constant="10" id="eLK-Cy-ZCr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oN6-dW-tBG" secondAttribute="trailing" constant="-20" id="fbp-Ke-HuO"/>
                             <constraint firstItem="OrK-ae-gS1" firstAttribute="top" secondItem="i4s-ZE-T9b" secondAttribute="bottom" constant="260" id="ifd-xT-QUs"/>
                             <constraint firstItem="oN6-dW-tBG" firstAttribute="leading" secondItem="YkJ-p7-61a" secondAttribute="leadingMargin" constant="-20" id="lua-2b-J4d"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="eLK-Cy-ZCr"/>
-                                <exclude reference="dcw-uB-FJ9"/>
-                                <exclude reference="cMp-bD-CRG"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="June 5th" id="4hM-kr-gNS">
                         <barButtonItem key="leftBarButtonItem" title="Back" style="plain" id="9uy-Tn-DzX">
