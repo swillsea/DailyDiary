@@ -54,7 +54,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Oax-of-3EB" kind="show" id="UJm-GY-a6t"/>
+                                            <segue destination="Oax-of-3EB" kind="presentation" id="UJm-GY-a6t"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFH-gr-LWd">

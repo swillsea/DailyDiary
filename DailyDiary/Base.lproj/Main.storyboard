@@ -190,7 +190,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QWy-7h-cJO">
                             <connections>
-                                <segue destination="Oax-of-3EB" kind="show" identifier="toAddNew" id="i6U-jJ-cgG"/>
+                                <segue destination="Oax-of-3EB" kind="presentation" identifier="toAddNew" id="i6U-jJ-cgG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

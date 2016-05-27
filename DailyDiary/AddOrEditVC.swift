@@ -50,7 +50,7 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
             saveOrUpdate()
         }
         self.entryText.resignFirstResponder()
-        self.navigationController?.popViewControllerAnimated(true)
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func displayCorrectEntry(){
