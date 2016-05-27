@@ -15,7 +15,7 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
     @IBOutlet weak var entryImageView: UIImageView!
     var doneEditing = false
     var moc: NSManagedObjectContext!
-    var currentEntry: Entry!
+    var entryBeingEdited: Entry!
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
 
@@ -27,15 +27,17 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
     }
     
     func displayCorrectEntry(){
-        if currentEntry != nil {
-            displayEntryDate(currentEntry.date!)
-            self.entryText.text = self.currentEntry.text
-            if currentEntry.imageData != nil{
-                self.entryImageView.image = UIImage.init(data: self.currentEntry.imageData!)
+        if entryBeingEdited != nil {
+            displayEntryDate(entryBeingEdited.date!)
+            self.entryText.text = self.entryBeingEdited.text
+            if entryBeingEdited.imageData != nil{
+                self.entryImageView.image = UIImage.init(data: self.entryBeingEdited.imageData!)
+                textViewBottomConstraint.constant = 10
             }
         } else {
             let today = NSDate()
             displayEntryDate(today)
+            textViewBottomConstraint.constant = 10-imageHeightConstraint.constant
         }
     }
     
@@ -44,11 +46,10 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         dateFormatter.dateFormat = "MMM dd, yyyy"
         self.title = dateFormatter.stringFromDate(date)
     }
-   
-    
+       
 //MARK: CoreData Interactions
     func saveOrUpdate() {
-        if currentEntry != nil { updateEntry() }
+        if entryBeingEdited != nil { updateEntry() }
         else { saveNewEntry() }
         
         do { try self.moc.save() }
@@ -58,9 +59,9 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
     }
     
     func updateEntry() {
-        currentEntry.text = self.entryText.text
+        entryBeingEdited.text = self.entryText.text
         if (self.entryImageView.image != nil){
-            currentEntry.imageData = UIImageJPEGRepresentation(self.entryImageView.image!, 1)
+            entryBeingEdited.imageData = UIImageJPEGRepresentation(self.entryImageView.image!, 1)
         }
     }
     
@@ -74,9 +75,10 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         } else {
             newEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
         }
-        currentEntry = newEntry
+        entryBeingEdited = newEntry
     }
-    //MARK: Actions
+
+//MARK: Actions
     
     @IBAction func onAddImageButtonPressed(sender: UIBarButtonItem) {
         if self.entryImageView.image != nil {
@@ -95,8 +97,9 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         
         let removeImage = UIAlertAction(title: "Remove image", style: .Destructive) { (alert:UIAlertAction!) -> Void in
             self.entryImageView.image = nil
-            if self.currentEntry != nil {
-                self.currentEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
+            self.textViewBottomConstraint.constant = 10-self.imageHeightConstraint.constant
+            if self.entryBeingEdited != nil {
+                self.entryBeingEdited.imageData = UIImageJPEGRepresentation(UIImage(), 0)
             }
         }
         
@@ -148,6 +151,7 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         self.entryImageView.image = image
+        textViewBottomConstraint.constant = 10
         self.dismissViewControllerAnimated(true, completion: nil)
         entryText.becomeFirstResponder()
     }

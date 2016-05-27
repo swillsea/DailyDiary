@@ -30,6 +30,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         resultsArray = entryResultsController.fetchedObjects! as! [NSManagedObject]
         self.collectionView.reloadData()
     }

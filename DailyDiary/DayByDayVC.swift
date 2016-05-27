@@ -25,7 +25,7 @@ class DayByDayVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.styleNavBar()
         self.cardView.layer.cornerRadius = 10
         self.cardView.clipsToBounds = true
         
@@ -39,6 +39,11 @@ class DayByDayVC: UIViewController {
         super.viewWillAppear(true)
         self.showDiaryWithEntry(self.selectedEntry)
     }
+    
+    func styleNavBar() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
 
     @IBAction func onLeftButtonPressed(sender: UIButton) {
         if self.index == 0 {
@@ -59,7 +64,7 @@ class DayByDayVC: UIViewController {
     }
     
     @IBAction func onDismissButtonPressed(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func showDiaryWithEntry(entry:Entry) {
@@ -99,7 +104,7 @@ class DayByDayVC: UIViewController {
         let destVC = navigationController.topViewController as! AddOrEditVC // since we're going to a navigation controller
         
         destVC.moc = self.moc
-        destVC.currentEntry = self.selectedEntry
+        destVC.entryBeingEdited = self.selectedEntry
         
     }
 
