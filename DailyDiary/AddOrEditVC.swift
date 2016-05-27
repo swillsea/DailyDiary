@@ -46,6 +46,10 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
     }
     
     func backTapped (){
+        if (self.entryText.text.characters.count > 0 || self.entryImageView.image != nil){
+            saveOrUpdate()
+        }
+        self.entryText.resignFirstResponder()
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -166,15 +170,6 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         prompt.addAction(libraryAction)
         prompt.addAction(cancel)
         presentViewController(prompt, animated: true, completion:nil)
-    }
-    
-    
-    @IBAction func onBackButtonPressed(sender: UIBarButtonItem) {
-        if (self.entryText.text.characters.count > 0 || self.entryImageView.image != nil){
-            saveOrUpdate()
-        }
-        self.entryText.resignFirstResponder()
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
