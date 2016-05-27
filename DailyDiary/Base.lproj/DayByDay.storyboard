@@ -69,11 +69,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFH-gr-LWd">
-                                        <rect key="frame" x="15" y="28" width="26" height="24"/>
+                                        <rect key="frame" x="15" y="28" width="41" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="26" id="uaw-1A-KhT"/>
+                                            <constraint firstAttribute="width" constant="41" id="uaw-1A-KhT"/>
                                         </constraints>
-                                        <state key="normal" image="list"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Back"/>
                                         <connections>
                                             <action selector="onDismissButtonPressed:" destination="m6b-oU-zeE" eventType="touchUpInside" id="KO5-f1-35b"/>
                                         </connections>
@@ -102,7 +103,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqA-8N-Oge">
                                 <rect key="frame" x="16" y="79" width="343" height="573"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kMV-6U-tar">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kMV-6U-tar">
                                         <rect key="frame" x="14" y="8" width="315" height="315"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kMV-6U-tar" secondAttribute="height" multiplier="1:1" id="AxO-cv-6H9"/>
@@ -203,7 +204,4 @@
             <point key="canvasLocation" x="1179" y="1891"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="list" width="26" height="24"/>
-    </resources>
 </document>

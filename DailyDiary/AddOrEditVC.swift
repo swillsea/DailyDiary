@@ -44,18 +44,15 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         dateFormatter.dateFormat = "MMM dd, yyyy"
         self.title = dateFormatter.stringFromDate(date)
     }
+   
     
 //MARK: CoreData Interactions
     func saveOrUpdate() {
-        if currentEntry != nil {
-            updateEntry()
-        } else {
-            saveNewEntry()
-        }
+        if currentEntry != nil { updateEntry() }
+        else { saveNewEntry() }
         
-        do {
-            try self.moc.save()
-        } catch let error as NSError {
+        do { try self.moc.save() }
+        catch let error as NSError {
             print("Error saving to CoreData \(error)")
         }
     }
@@ -79,9 +76,38 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         }
         currentEntry = newEntry
     }
+    //MARK: Actions
     
-//MARK: Actions
-    @IBAction func onAddImagePressed(sender: UIButton) {
+    @IBAction func onAddImageButtonPressed(sender: UIBarButtonItem) {
+        if self.entryImageView.image != nil {
+            promptForReplaceImage()
+        } else {
+            promptForImageSource()
+        }
+    }
+    
+    func promptForReplaceImage(){
+        let prompt = UIAlertController(title:nil, message:nil, preferredStyle: .ActionSheet)
+        
+        let continueToReplace = UIAlertAction(title: "Replace current image", style: .Default) { (alert:UIAlertAction!) -> Void in
+            self.promptForImageSource()
+        }
+        
+        let removeImage = UIAlertAction(title: "Remove image", style: .Destructive) { (alert:UIAlertAction!) -> Void in
+            self.entryImageView.image = nil
+            if self.currentEntry != nil {
+                self.currentEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
+            }
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        prompt.addAction(continueToReplace)
+        prompt.addAction(removeImage)
+        prompt.addAction(cancel)
+        presentViewController(prompt, animated: true, completion:nil)
+    }
+    
+    func promptForImageSource(){
         let imagePicker = UIImagePickerController()
         imagePicker.delegate      = self
         imagePicker.allowsEditing = true
@@ -94,7 +120,6 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
                 imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
                 self.presentViewController(imagePicker, animated: true, completion: nil)
             }
-            
         }
         
         let libraryAction = UIAlertAction(title: "Choose from Library", style: .Default) { (alert: UIAlertAction!) -> Void in
@@ -109,35 +134,17 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         prompt.addAction(libraryAction)
         prompt.addAction(cancel)
         presentViewController(prompt, animated: true, completion:nil)
-        
     }
+    
+    
     @IBAction func onBackButtonPressed(sender: UIBarButtonItem) {
+        if (self.entryText.text.characters.count > 0 || self.entryImageView.image != nil){
+            saveOrUpdate()
+        }
         self.entryText.resignFirstResponder()
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func onEditButtonPressed(sender: UIBarButtonItem) {
-        if !doneEditing {
-            self.navigationItem.rightBarButtonItem!.title = "Edit"
-            entryText.resignFirstResponder()
-            if (self.entryImageView.image != nil){
-                self.imageHeightConstraint.constant = self.view.frame.width
-                self.textViewBottomConstraint.constant = 20
-            }
-            if (self.entryText.text.characters.count > 0 || self.entryImageView.image != nil){
-                saveOrUpdate()
-            }
-            
-        } else {
-            self.navigationItem.rightBarButtonItem!.title = "Done"
-            entryText.becomeFirstResponder()
-            self.imageHeightConstraint.constant = 50
-            self.textViewBottomConstraint.constant = 260
-            
-        }
-        doneEditing = !doneEditing
-    }
-        
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         self.entryImageView.image = image

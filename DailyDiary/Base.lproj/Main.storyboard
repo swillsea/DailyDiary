@@ -158,7 +158,7 @@
                                             <outlet property="monthLabel" destination="pVY-VO-r99" id="4tq-2F-ytZ"/>
                                             <outlet property="timeAgoLabel" destination="vQh-RG-jKm" id="Tqn-ug-weY"/>
                                             <outlet property="timeAgoLabelLeadingConstraint" destination="HJ6-mf-XcN" id="GUD-Q8-Ydh"/>
-                                            <segue destination="W0O-Wz-W2u" kind="presentation" identifier="toDayView" modalTransitionStyle="crossDissolve" id="eeg-TL-ds3"/>
+                                            <segue destination="W0O-Wz-W2u" kind="presentation" identifier="toDayView" modalTransitionStyle="coverVertical" id="eeg-TL-ds3"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

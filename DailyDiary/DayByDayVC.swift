@@ -26,15 +26,18 @@ class DayByDayVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.cardView.layer.cornerRadius = 10
+        self.cardView.clipsToBounds = true
+        
         if self.resultsArray.count != 0 {
             self.selectedEntry = resultsArray[self.index] as! Entry
             self.showDiaryWithEntry(self.selectedEntry)
-        } else {
-            self.timeTextField.text = "May 18, 2016"
         }
-        
-        self.cardView.layer.cornerRadius = 10
-        self.cardView.clipsToBounds = true
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.showDiaryWithEntry(self.selectedEntry)
     }
 
     @IBAction func onLeftButtonPressed(sender: UIButton) {
@@ -70,8 +73,8 @@ class DayByDayVC: UIViewController {
             self.wordCountLabelTopConstraint.constant = 13
         } else {
             self.imageView.image = nil
-            self.timeLabelTopConstraint.constant = -300
-            self.wordCountLabelTopConstraint.constant = -300
+            self.timeLabelTopConstraint.constant = 13-self.imageView.frame.height
+            self.wordCountLabelTopConstraint.constant = 13-self.imageView.frame.height
         }
         
         self.textView.text = entry.text
