@@ -36,19 +36,9 @@ class ListCell: UICollectionViewCell {
             monthLabel.text = entry!.date!.month()
             dayLabel.text = entry!.date!.day()
 //            let timeSinceCreated = entry!.date!.timeAsString()
-            self.timeAgoLabel.text = "\(numberOfWordsInEntry())"
+            self.timeAgoLabel.text = "\(entry!.text!.asWordCountString())"
             self.layer.cornerRadius = 4
             self.clipsToBounds = true
-        }
-    }
-    
-    func numberOfWordsInEntry () -> String {
-        let words = entry!.text!.componentsSeparatedByString(" ") as Array
-        
-        if words.count == 1 {
-            return "\(words.count) word"
-        } else {
-           return "\(words.count) words"
         }
     }
 }

@@ -44,7 +44,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     }
     
     
-    // MARK: CollectionViewLayout
+// MARK: CollectionViewLayout
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (resultsArray != nil) { return resultsArray.count }
         else { return 0 }
@@ -175,7 +175,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         }
     }
     
-    // MARK: - Navigation
+// MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "toAddNew" {

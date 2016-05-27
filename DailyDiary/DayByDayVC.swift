@@ -83,21 +83,10 @@ class DayByDayVC: UIViewController {
         }
         
         self.textView.text = entry.text
-        self.wordNumberLabel.text = numberOfWordsInEntry()
+        self.wordNumberLabel.text = selectedEntry.text!.asWordCountString()
         self.timeTextLabel.text = self.selectedEntry.date?.time()
 
     }
-    
-    func numberOfWordsInEntry () -> String {
-        let words = selectedEntry.text!.componentsSeparatedByString(" ") as Array
-        
-        if words.count == 1 {
-            return "\(words.count) word"
-        } else {
-            return "\(words.count) words"
-        }
-    }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let navigationController = segue.destinationViewController as! UINavigationController
