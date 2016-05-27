@@ -17,15 +17,24 @@ class DayByDayVC: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var textView: UITextView!
     var moc: NSManagedObjectContext!
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var timeLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var wordCountLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var timeTextLabel: UILabel!
+    @IBOutlet weak var wordNumberLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if self.resultsArray.count != 0 {
             self.selectedEntry = resultsArray[self.index] as! Entry
             self.showDiaryWithEntry(self.selectedEntry)
         } else {
             self.timeTextField.text = "May 18, 2016"
         }
+        
+        self.cardView.layer.cornerRadius = 10
+        self.cardView.clipsToBounds = true
     }
 
     @IBAction func onLeftButtonPressed(sender: UIButton) {
@@ -54,14 +63,33 @@ class DayByDayVC: UIViewController {
         let dateFormat = NSDateFormatter()
         dateFormat.dateStyle = .MediumStyle
         self.timeTextField.text = dateFormat.stringFromDate(entry.date!)
-        if entry.imageData != nil {
+        
+        if selectedEntry.imageData != nil {
             self.imageView.image = UIImage(data:entry.imageData!)
+            self.timeLabelTopConstraint.constant = 13
+            self.wordCountLabelTopConstraint.constant = 13
         } else {
             self.imageView.image = nil
+            self.timeLabelTopConstraint.constant = -300
+            self.wordCountLabelTopConstraint.constant = -300
         }
+        
         self.textView.text = entry.text
+        self.wordNumberLabel.text = numberOfWordsInEntry()
+        self.timeTextLabel.text = self.selectedEntry.date?.time()
 
     }
+    
+    func numberOfWordsInEntry () -> String {
+        let words = selectedEntry.text!.componentsSeparatedByString(" ") as Array
+        
+        if words.count == 1 {
+            return "\(words.count) word"
+        } else {
+            return "\(words.count) words"
+        }
+    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let navigationController = segue.destinationViewController as! UINavigationController
