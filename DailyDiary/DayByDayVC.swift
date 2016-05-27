@@ -26,8 +26,10 @@ class DayByDayVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.styleNavBar()
-        self.cardView.layer.cornerRadius = 10
+        self.cardView.layer.cornerRadius = 14
         self.cardView.clipsToBounds = true
+        self.imageView.layer.cornerRadius = 2
+        self.imageView.clipsToBounds = true
         
         if self.resultsArray.count != 0 {
             self.selectedEntry = resultsArray[self.index] as! Entry
