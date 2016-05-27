@@ -26,11 +26,9 @@ class DayByDayVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.styleNavBar()
+        self.prefersStatusBarHidden()
         self.cardView.layer.cornerRadius = 14
         self.cardView.clipsToBounds = true
-        self.imageView.layer.cornerRadius = 2
-        self.imageView.clipsToBounds = true
-        
         if self.resultsArray.count != 0 {
             self.selectedEntry = resultsArray[self.index] as! Entry
             self.showDiaryWithEntry(self.selectedEntry)
@@ -38,12 +36,17 @@ class DayByDayVC: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
+        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation:UIStatusBarAnimation.None)
         self.showDiaryWithEntry(self.selectedEntry)
     }
     
     func styleNavBar() {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 
 
@@ -85,14 +88,14 @@ class DayByDayVC: UIViewController {
         }
         
         self.textView.text = entry.text
+        self.textView.setContentOffset(CGPointMake(0.0, 0.0), animated: false)
         self.wordNumberLabel.text = selectedEntry.text!.asWordCountString()
         self.timeTextLabel.text = self.selectedEntry.date?.time()
 
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let navigationController = segue.destinationViewController as! UINavigationController
-        let destVC = navigationController.topViewController as! AddOrEditVC // since we're going to a navigation controller
+        let destVC = segue.destinationViewController as! AddOrEditVC // since we're going to a navigation controller
         
         destVC.moc = self.moc
         destVC.entryBeingEdited = self.selectedEntry

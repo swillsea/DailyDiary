@@ -19,10 +19,10 @@ class GridCell: UICollectionViewCell {
                 
             } else {
                 imageView.image = nil;
-                imageView.backgroundColor = UIColor.init(colorLiteralRed: 168/255, green: 196/255, blue: 199/255, alpha: 1.0)
+                imageView.backgroundColor = UIColor.init(colorLiteralRed: 27/255, green: 27/255, blue: 27/255, alpha: 1.0)
             }
             
-            self.imageView.layer.cornerRadius = 20
+            self.imageView.layer.cornerRadius = 4
             self.imageView.clipsToBounds = true
             
         }

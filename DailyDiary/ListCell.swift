@@ -33,7 +33,7 @@ class ListCell: UICollectionViewCell {
                 entryLabelLeadingConstraint.constant   = -imageView.frame.width + 10
             }
             entryLabel.text = entry!.text
-            monthLabel.text = entry!.date!.month()
+            monthLabel.text = entry!.date!.month().uppercaseString
             dayLabel.text = entry!.date!.day()
 //            let timeSinceCreated = entry!.date!.timeAsString()
             self.timeAgoLabel.text = "\(entry!.text!.asWordCountString())"

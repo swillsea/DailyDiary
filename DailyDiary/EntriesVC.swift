@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate {
+class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var layoutButton: UIBarButtonItem!
@@ -21,17 +21,15 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     var sectionChanges = NSMutableArray()
     var itemChanges = NSMutableArray()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareForCollectionView()
     }
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(true)
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation:UIStatusBarAnimation.None)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        resultsArray = entryResultsController.fetchedObjects! as! [NSManagedObject]
+        prepareForCollectionView()
         self.collectionView.reloadData()
     }
     
@@ -39,7 +37,6 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         entryResultsController = CoreDataManager.sharedInstance.fetchCoreData()
         entryResultsController.delegate = self
         resultsArray = entryResultsController.fetchedObjects! as! [NSManagedObject]
-        
         self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
     }
     
@@ -51,9 +48,12 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let collectionViewWidth = collectionView.frame.size.width
+        var collectionViewWidth : CGFloat = 30.0
+        if collectionView.frame.size.width > 30 {
+            collectionViewWidth = self.collectionView.frame.size.width //we need to use a constant so that in viewWillAppear the status bar changing doesn't cause layout problems when reloading collectionView
+        }
         if viewIsListLayout {
-            return CGSize(width: collectionViewWidth-20, height: 75)
+            return CGSize(width: (collectionViewWidth-20), height: 75)
         } else {
             return CGSize(width: collectionViewWidth/2, height: collectionViewWidth/2)
         }
@@ -83,11 +83,13 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         if (viewIsListLayout) {
             self.layoutButton.image = UIImage.init(named:"list")
-            self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+            self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
             viewIsListLayout = false
         } else {
             self.layoutButton.image = UIImage.init(named:"grid")
-            self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+            self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0)
+            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: -10), animated: false)
+
             viewIsListLayout = true
         }
         
@@ -179,9 +181,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "toAddNew" {
-            let navigationController = segue.destinationViewController as! UINavigationController
-            let destVC = navigationController.topViewController as! AddOrEditVC // since we're going to a navigation controller
-
+            let destVC = segue.destinationViewController as! AddOrEditVC // since we're going to a navigation controller
             destVC.moc = self.moc
             
         } else if segue.identifier == "toDayView" {

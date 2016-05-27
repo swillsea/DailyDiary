@@ -23,8 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupNavigationAppearanceAcrossApp() {
         let navigationBarAppearance = UINavigationBar.appearance
-        navigationBarAppearance().barTintColor = UIColor.init(red: 247/255, green: 153/255, blue: 157/255, alpha: 1)
-        navigationBarAppearance().tintColor = UIColor.whiteColor();
+        navigationBarAppearance().barTintColor = UIColor.whiteColor()
+        navigationBarAppearance().translucent = true
+        navigationBarAppearance().tintColor = UIColor.init(red: 27/255, green: 27/255, blue: 27/255, alpha: 1)
         let attributes = Dictionary.init(dictionaryLiteral:(NSForegroundColorAttributeName,UIColor.whiteColor()))
         navigationBarAppearance().titleTextAttributes = attributes
     

@@ -22,8 +22,31 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
 //MARK: View Setup
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.styleNavBar()
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation:UIStatusBarAnimation.Fade)
         displayCorrectEntry()
         entryText.becomeFirstResponder()
+    }
+    
+    func styleNavBar() {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        let newNavBar = UINavigationBar.init(frame:(CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 64.0)))
+        let newItem = UINavigationItem()
+        
+        let addImageButtonImage = UIImage.init(named:"camera")
+        let addImageBarButtonItem = UIBarButtonItem.init(image: addImageButtonImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.addImage))
+        
+        let doneBarButtonItem = UIBarButtonItem.init(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: #selector(self.backTapped))
+        
+        // the bar button item is actually set on the navigation item, not the navigation bar itself.
+        newItem.rightBarButtonItem = addImageBarButtonItem
+        newItem.leftBarButtonItem = doneBarButtonItem
+        newNavBar.setItems([newItem], animated: false)
+        self.view.addSubview(newNavBar)
+    }
+    
+    func backTapped (){
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func displayCorrectEntry(){
@@ -34,12 +57,12 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
                 self.entryImageView.image = UIImage.init(data: self.entryBeingEdited.imageData!)
                 textViewBottomConstraint.constant = 10
             } else {
-                textViewBottomConstraint.constant = 10-imageHeightConstraint.constant
+                textViewBottomConstraint.constant = -60
             }
         } else {
             let today = NSDate()
             displayEntryDate(today)
-            textViewBottomConstraint.constant = 10-imageHeightConstraint.constant
+            textViewBottomConstraint.constant = -60
         }
     }
     
@@ -82,12 +105,16 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
 
 //MARK: Actions
     
-    @IBAction func onAddImageButtonPressed(sender: UIBarButtonItem) {
+    func addImage() {
         if self.entryImageView.image != nil {
             promptForReplaceImage()
         } else {
             promptForImageSource()
         }
+    }
+    
+    @IBAction func onAddImageButtonPressed(sender: UIBarButtonItem) {
+
     }
     
     func promptForReplaceImage(){
@@ -99,7 +126,7 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         
         let removeImage = UIAlertAction(title: "Remove image", style: .Destructive) { (alert:UIAlertAction!) -> Void in
             self.entryImageView.image = nil
-            self.textViewBottomConstraint.constant = 10-self.imageHeightConstraint.constant
+            self.textViewBottomConstraint.constant = -60
             if self.entryBeingEdited != nil {
                 self.entryBeingEdited.imageData = UIImageJPEGRepresentation(UIImage(), 0)
             }
