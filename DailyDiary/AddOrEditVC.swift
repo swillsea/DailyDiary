@@ -33,6 +33,8 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
             if entryBeingEdited.imageData != nil{
                 self.entryImageView.image = UIImage.init(data: self.entryBeingEdited.imageData!)
                 textViewBottomConstraint.constant = 10
+            } else {
+                textViewBottomConstraint.constant = 10-imageHeightConstraint.constant
             }
         } else {
             let today = NSDate()
