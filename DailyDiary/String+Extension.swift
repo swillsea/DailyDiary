@@ -3,7 +3,7 @@
 //  DailyDiary
 //
 //  Created by Sam on 5/27/16.
-//  Copyright © 2016 Sam Willsea. All rights reserved.
+//  Copyright © 2016 Sam Willsea, Pei Xiong, and Michael Merrill. All rights reserved.
 //
 
 import Foundation
@@ -21,6 +21,4 @@ extension NSString {
             return "\(words.count) words"
         }
     }
-    
-    
 }
