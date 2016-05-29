@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DayByDayVC: UIViewController {
+class DayByDayVC: UIViewController, UIScrollViewDelegate {
     var resultsArray : [NSManagedObject]!
     var selectedEntry: Entry!
     var index:NSInteger!
@@ -22,7 +22,8 @@ class DayByDayVC: UIViewController {
     @IBOutlet weak var wordCountLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var timeTextLabel: UILabel!
     @IBOutlet weak var wordNumberLabel: UILabel!
-    
+
+//MARK: Appearance
     override func viewDidLoad() {
         super.viewDidLoad()
         self.styleNavBar()
@@ -48,29 +49,6 @@ class DayByDayVC: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
-
-
-    @IBAction func onLeftButtonPressed(sender: UIButton) {
-        if self.index == 0 {
-        } else {
-            self.selectedEntry = resultsArray[self.index-1] as! Entry
-            self.showDiaryWithEntry(self.selectedEntry)
-            self.index = self.index - 1
-        }
-    }
-    
-    @IBAction func onRightButtonPressed(sender: UIButton) {
-        if self.index == self.resultsArray.count-1 {
-        } else {
-            self.selectedEntry = resultsArray[self.index+1] as! Entry
-            self.showDiaryWithEntry(self.selectedEntry)
-            self.index = self.index + 1
-        }
-    }
-    
-    @IBAction func onDismissButtonPressed(sender: UIButton) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
     
     func showDiaryWithEntry(entry:Entry) {
         let dateFormat = NSDateFormatter()
@@ -91,7 +69,57 @@ class DayByDayVC: UIViewController {
         self.textView.setContentOffset(CGPointMake(0.0, 0.0), animated: false)
         self.wordNumberLabel.text = selectedEntry.text!.asWordCountString()
         self.timeTextLabel.text = self.selectedEntry.date?.time()
+        
+    }
 
+//MARK: Moving through Entries
+    func goBackOneEntry(){
+        if self.index == self.resultsArray.count-1 {
+        } else {
+            self.selectedEntry = resultsArray[self.index+1] as! Entry
+            self.showDiaryWithEntry(self.selectedEntry)
+            self.index = self.index + 1
+        }
+    }
+    
+    func goForwardOneEntry(){
+        if self.index == 0 {
+        } else {
+            self.selectedEntry = resultsArray[self.index-1] as! Entry
+            self.showDiaryWithEntry(self.selectedEntry)
+            self.index = self.index - 1
+        }
+    }
+    
+    @IBAction func onLeftButtonPressed(sender: UIButton) {
+        goForwardOneEntry()
+    }
+    
+    @IBAction func onRightButtonPressed(sender: UIButton) {
+        goBackOneEntry()
+    }
+    
+    //Allows us to override UITextView gesture recognition so entries are swipeable when swipes occur over text
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    @IBAction func onSwipeRight(sender: UISwipeGestureRecognizer) {
+        textView.scrollEnabled = false
+        goBackOneEntry()
+        textView.scrollEnabled = true
+
+    }
+    
+    @IBAction func onSwipeLeft(sender: UISwipeGestureRecognizer) {
+        textView.scrollEnabled = false
+        goForwardOneEntry()
+        textView.scrollEnabled = true
+    }
+    
+//MARK: Navigation
+    @IBAction func onDismissButtonPressed(sender: UIButton) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
