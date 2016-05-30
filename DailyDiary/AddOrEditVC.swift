@@ -1,6 +1,6 @@
 //
 //  AddOrEditVC.swift
-//  DailyDiary
+//  Quotidian
 //
 //  Created by Sam on 5/9/16.
 //  Copyright © 2016 Sam Willsea, Pei Xiong, and Michael Merrill. All rights reserved.

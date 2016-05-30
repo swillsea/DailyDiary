@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		223DEFE71CE1813A001E8192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DEFE61CE1813A001E8192 /* AppDelegate.swift */; };
 		223DEFEC1CE1813A001E8192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223DEFEA1CE1813A001E8192 /* Main.storyboard */; };
-		223DEFEF1CE1813A001E8192 /* DailyDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 223DEFED1CE1813A001E8192 /* DailyDiary.xcdatamodeld */; };
 		223DEFF11CE1813A001E8192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223DEFF01CE1813A001E8192 /* Assets.xcassets */; };
 		223DEFF41CE1813A001E8192 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223DEFF21CE1813A001E8192 /* LaunchScreen.storyboard */; };
 		223DEFFC1CE18540001E8192 /* EntriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DEFFB1CE18540001E8192 /* EntriesVC.swift */; };
@@ -18,20 +17,20 @@
 		223DF0021CE18594001E8192 /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF0011CE18594001E8192 /* GridCell.swift */; };
 		223DF0041CE185A4001E8192 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF0031CE185A4001E8192 /* ListCell.swift */; };
 		223DF0091CE18926001E8192 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF0081CE18926001E8192 /* Date+Extension.swift */; };
-		223DF00C1CE189BB001E8192 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF00A1CE189BB001E8192 /* Entry+CoreDataProperties.swift */; };
-		223DF00D1CE189BB001E8192 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DF00B1CE189BB001E8192 /* Entry.swift */; };
 		223DF00F1CE1AA33001E8192 /* AddEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223DF00E1CE1AA33001E8192 /* AddEdit.storyboard */; };
 		223DF0121CE1AA51001E8192 /* DayByDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223DF0101CE1AA51001E8192 /* DayByDay.storyboard */; };
+		2266D8611CFCA6770008D8C2 /* Quotidian.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2266D85F1CFCA6770008D8C2 /* Quotidian.xcdatamodeld */; };
+		2266D8641CFCA74E0008D8C2 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266D8621CFCA74E0008D8C2 /* Entry+CoreDataProperties.swift */; };
+		2266D8651CFCA74E0008D8C2 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266D8631CFCA74E0008D8C2 /* Entry.swift */; };
 		228E7F8D1CE25DFA003BF13B /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228E7F8C1CE25DFA003BF13B /* AnimationViewController.swift */; };
 		228E7F8F1CE2E161003BF13B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228E7F8E1CE2E161003BF13B /* CoreDataManager.swift */; };
 		22A02D991CF8B2C500ECEFF3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A02D981CF8B2C500ECEFF3 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		223DEFE31CE1813A001E8192 /* DailyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		223DEFE31CE1813A001E8192 /* Quotidian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotidian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223DEFE61CE1813A001E8192 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		223DEFEB1CE1813A001E8192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		223DEFEE1CE1813A001E8192 /* DailyDiary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DailyDiary.xcdatamodel; sourceTree = "<group>"; };
 		223DEFF01CE1813A001E8192 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		223DEFF31CE1813A001E8192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		223DEFF51CE1813A001E8192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,10 +40,11 @@
 		223DF0011CE18594001E8192 /* GridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCell.swift; sourceTree = "<group>"; };
 		223DF0031CE185A4001E8192 /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		223DF0081CE18926001E8192 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		223DF00A1CE189BB001E8192 /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		223DF00B1CE189BB001E8192 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		223DF00E1CE1AA33001E8192 /* AddEdit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddEdit.storyboard; sourceTree = "<group>"; };
 		223DF0111CE1AA51001E8192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DayByDay.storyboard; sourceTree = "<group>"; };
+		2266D8601CFCA6770008D8C2 /* Quotidian.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quotidian.xcdatamodel; sourceTree = "<group>"; };
+		2266D8621CFCA74E0008D8C2 /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entry+CoreDataProperties.swift"; path = "../Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2266D8631CFCA74E0008D8C2 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = ../Entry.swift; sourceTree = "<group>"; };
 		228E7F8C1CE25DFA003BF13B /* AnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		228E7F8E1CE2E161003BF13B /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		22A02D981CF8B2C500ECEFF3 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		223DEFDA1CE1813A001E8192 = {
 			isa = PBXGroup;
 			children = (
-				223DEFE51CE1813A001E8192 /* DailyDiary */,
+				223DEFE51CE1813A001E8192 /* Quotidian */,
 				223DEFE41CE1813A001E8192 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,12 +72,12 @@
 		223DEFE41CE1813A001E8192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				223DEFE31CE1813A001E8192 /* DailyDiary.app */,
+				223DEFE31CE1813A001E8192 /* Quotidian.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		223DEFE51CE1813A001E8192 /* DailyDiary */ = {
+		223DEFE51CE1813A001E8192 /* Quotidian */ = {
 			isa = PBXGroup;
 			children = (
 				223DEFE61CE1813A001E8192 /* AppDelegate.swift */,
@@ -92,8 +92,9 @@
 				228E7F911CE448B9003BF13B /* Extensions */,
 				223DEFF01CE1813A001E8192 /* Assets.xcassets */,
 				223DEFF51CE1813A001E8192 /* Info.plist */,
-				223DEFED1CE1813A001E8192 /* DailyDiary.xcdatamodeld */,
+				2266D85F1CFCA6770008D8C2 /* Quotidian.xcdatamodeld */,
 			);
+			name = Quotidian;
 			path = DailyDiary;
 			sourceTree = "<group>";
 		};
@@ -120,8 +121,8 @@
 		223DF0071CE185CB001E8192 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				223DF00A1CE189BB001E8192 /* Entry+CoreDataProperties.swift */,
-				223DF00B1CE189BB001E8192 /* Entry.swift */,
+				2266D8621CFCA74E0008D8C2 /* Entry+CoreDataProperties.swift */,
+				2266D8631CFCA74E0008D8C2 /* Entry.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -146,9 +147,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		223DEFE21CE1813A001E8192 /* DailyDiary */ = {
+		223DEFE21CE1813A001E8192 /* Quotidian */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 223DEFF81CE1813A001E8192 /* Build configuration list for PBXNativeTarget "DailyDiary" */;
+			buildConfigurationList = 223DEFF81CE1813A001E8192 /* Build configuration list for PBXNativeTarget "Quotidian" */;
 			buildPhases = (
 				223DEFDF1CE1813A001E8192 /* Sources */,
 				223DEFE01CE1813A001E8192 /* Frameworks */,
@@ -158,9 +159,9 @@
 			);
 			dependencies = (
 			);
-			name = DailyDiary;
+			name = Quotidian;
 			productName = DailyDiary;
-			productReference = 223DEFE31CE1813A001E8192 /* DailyDiary.app */;
+			productReference = 223DEFE31CE1813A001E8192 /* Quotidian.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -178,7 +179,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 223DEFDE1CE1813A001E8192 /* Build configuration list for PBXProject "DailyDiary" */;
+			buildConfigurationList = 223DEFDE1CE1813A001E8192 /* Build configuration list for PBXProject "Quotidian" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -191,7 +192,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				223DEFE21CE1813A001E8192 /* DailyDiary */,
+				223DEFE21CE1813A001E8192 /* Quotidian */,
 			);
 		};
 /* End PBXProject section */
@@ -216,8 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				223DF00D1CE189BB001E8192 /* Entry.swift in Sources */,
-				223DEFEF1CE1813A001E8192 /* DailyDiary.xcdatamodeld in Sources */,
+				2266D8651CFCA74E0008D8C2 /* Entry.swift in Sources */,
 				228E7F8D1CE25DFA003BF13B /* AnimationViewController.swift in Sources */,
 				223DEFE71CE1813A001E8192 /* AppDelegate.swift in Sources */,
 				223DEFFC1CE18540001E8192 /* EntriesVC.swift in Sources */,
@@ -225,9 +225,10 @@
 				22A02D991CF8B2C500ECEFF3 /* String+Extension.swift in Sources */,
 				228E7F8F1CE2E161003BF13B /* CoreDataManager.swift in Sources */,
 				223DEFFE1CE18557001E8192 /* DayByDayVC.swift in Sources */,
+				2266D8641CFCA74E0008D8C2 /* Entry+CoreDataProperties.swift in Sources */,
 				223DF0091CE18926001E8192 /* Date+Extension.swift in Sources */,
-				223DF00C1CE189BB001E8192 /* Entry+CoreDataProperties.swift in Sources */,
 				223DF0001CE1856E001E8192 /* AddOrEditVC.swift in Sources */,
+				2266D8611CFCA6770008D8C2 /* Quotidian.xcdatamodeld in Sources */,
 				223DF0021CE18594001E8192 /* GridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,8 +353,8 @@
 				INFOPLIST_FILE = DailyDiary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.samwillsea.DailyDiary;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.samwillsea.Quotidian;
+				PRODUCT_NAME = Quotidian;
 			};
 			name = Debug;
 		};
@@ -364,15 +365,15 @@
 				INFOPLIST_FILE = DailyDiary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.samwillsea.DailyDiary;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.samwillsea.Quotidian;
+				PRODUCT_NAME = Quotidian;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		223DEFDE1CE1813A001E8192 /* Build configuration list for PBXProject "DailyDiary" */ = {
+		223DEFDE1CE1813A001E8192 /* Build configuration list for PBXProject "Quotidian" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				223DEFF61CE1813A001E8192 /* Debug */,
@@ -381,7 +382,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		223DEFF81CE1813A001E8192 /* Build configuration list for PBXNativeTarget "DailyDiary" */ = {
+		223DEFF81CE1813A001E8192 /* Build configuration list for PBXNativeTarget "Quotidian" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				223DEFF91CE1813A001E8192 /* Debug */,
@@ -393,13 +394,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		223DEFED1CE1813A001E8192 /* DailyDiary.xcdatamodeld */ = {
+		2266D85F1CFCA6770008D8C2 /* Quotidian.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				223DEFEE1CE1813A001E8192 /* DailyDiary.xcdatamodel */,
+				2266D8601CFCA6770008D8C2 /* Quotidian.xcdatamodel */,
 			);
-			currentVersion = 223DEFEE1CE1813A001E8192 /* DailyDiary.xcdatamodel */;
-			path = DailyDiary.xcdatamodeld;
+			currentVersion = 2266D8601CFCA6770008D8C2 /* Quotidian.xcdatamodel */;
+			path = Quotidian.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
