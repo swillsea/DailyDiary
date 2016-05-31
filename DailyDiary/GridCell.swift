@@ -1,9 +1,9 @@
 //
 //  GridCell.swift
-//  DailyDiary
+//  Quotidian
 //
 //  Created by Sam on 5/9/16.
-//  Copyright © 2016 Sam Willsea. All rights reserved.
+//  Copyright © 2016 Sam Willsea, Pei Xiong, and Michael Merrill. All rights reserved.
 //
 
 import UIKit
@@ -19,10 +19,10 @@ class GridCell: UICollectionViewCell {
                 
             } else {
                 imageView.image = nil;
-                imageView.backgroundColor = UIColor.init(colorLiteralRed: 168/255, green: 196/255, blue: 199/255, alpha: 1.0)
+                imageView.backgroundColor = UIColor.init(colorLiteralRed: 200/255, green: 200/255, blue: 200/255, alpha: 1.0)
             }
             
-            self.imageView.layer.cornerRadius = 20
+            self.imageView.layer.cornerRadius = 4
             self.imageView.clipsToBounds = true
             
         }

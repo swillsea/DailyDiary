@@ -1,8 +1,8 @@
 //
 //  Entry.swift
-//  DailyDiary
+//  Quotidian
 //
-//  Created by Sam on 5/9/16.
+//  Created by Sam on 5/30/16.
 //  Copyright © 2016 Sam Willsea. All rights reserved.
 //
 

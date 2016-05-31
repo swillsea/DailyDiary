@@ -1,9 +1,9 @@
 //
 //  ListCell.swift
-//  DailyDiary
+//  Quotidian
 //
 //  Created by Sam on 5/9/16.
-//  Copyright © 2016 Sam Willsea. All rights reserved.
+//  Copyright © 2016 Sam Willsea, Pei Xiong, and Michael Merrill. All rights reserved.
 //
 
 import UIKit
@@ -33,22 +33,12 @@ class ListCell: UICollectionViewCell {
                 entryLabelLeadingConstraint.constant   = -imageView.frame.width + 10
             }
             entryLabel.text = entry!.text
-            monthLabel.text = entry!.date!.month()
+            monthLabel.text = entry!.date!.month().uppercaseString
             dayLabel.text = entry!.date!.day()
 //            let timeSinceCreated = entry!.date!.timeAsString()
-            self.timeAgoLabel.text = "\(numberOfWordsInEntry())"
+            self.timeAgoLabel.text = "\(entry!.text!.asWordCountString())"
             self.layer.cornerRadius = 4
             self.clipsToBounds = true
-        }
-    }
-    
-    func numberOfWordsInEntry () -> String {
-        let words = entry!.text!.componentsSeparatedByString(" ") as Array
-        
-        if words.count == 1 {
-            return "\(words.count) word"
-        } else {
-           return "\(words.count) words"
         }
     }
 }

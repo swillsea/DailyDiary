@@ -28,9 +28,9 @@ class CoreDataManager: NSObject {
         do {
             try entryResultsController.performFetch()
                 
-                // If fetch is empty, load test data
+//              If fetch is empty, load test data
                 if entryResultsController.fetchedObjects?.count == 0 {
-//                    self.addTestData()
+//                    self.addTestData() - this method only exists in the testing branch so as not to ever accidently push to the app store
                 }
             
         }catch let error as NSError{
@@ -38,5 +38,7 @@ class CoreDataManager: NSObject {
         }
         return entryResultsController
     }
+    
+    
     
 }

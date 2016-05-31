@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  DailyDiary
+//  Quotidian
 //
 //  Created by Sam on 5/9/16.
-//  Copyright © 2016 Sam Willsea. All rights reserved.
+//  Copyright © 2016 Sam Willsea, Pei Xiong, and Michael Merrill. All rights reserved.
 //
 
 import UIKit
@@ -23,8 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupNavigationAppearanceAcrossApp() {
         let navigationBarAppearance = UINavigationBar.appearance
-        navigationBarAppearance().barTintColor = UIColor.init(red: 247/255, green: 153/255, blue: 157/255, alpha: 1)
-        navigationBarAppearance().tintColor = UIColor.whiteColor();
+        navigationBarAppearance().barTintColor = UIColor.whiteColor()
+        navigationBarAppearance().translucent = true
+        navigationBarAppearance().tintColor = UIColor.init(red: 27/255, green: 27/255, blue: 27/255, alpha: 1)
         let attributes = Dictionary.init(dictionaryLiteral:(NSForegroundColorAttributeName,UIColor.whiteColor()))
         navigationBarAppearance().titleTextAttributes = attributes
     
@@ -57,14 +58,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
-        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.samwillsea.DailyDiary" in the application's documents Application Support directory.
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.samwillsea.Quotidian" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count-1]
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("DailyDiary", withExtension: "momd")!
+        let modelURL = NSBundle.mainBundle().URLForResource("Quotidian", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
 

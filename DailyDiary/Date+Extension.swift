@@ -59,15 +59,22 @@ extension NSDate {
         
     }
     
-    func month () -> String {
+    func time() -> String{
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "h:mm aa"
+        let time = dateFormatter.stringFromDate(self)
         
+        return time
+    }
+    
+    func month() -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM"
         let month = dateFormatter.stringFromDate(self)
         return month
     }
     
-    func day () -> String {
+    func day() -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd"
         let day = dateFormatter.stringFromDate(self)
