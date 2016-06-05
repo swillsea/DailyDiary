@@ -11,13 +11,13 @@ import CoreData
 
 class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
-    @IBOutlet weak var entryText: UITextView!
-    @IBOutlet weak var entryImageView: UIImageView!
-    var doneEditing = false
+    @IBOutlet private weak var entryText: UITextView!
+    @IBOutlet private weak var entryImageView: UIImageView!
+    private var doneEditing = false
     var moc: NSManagedObjectContext!
     var entryBeingEdited: Entry!
-    @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var imageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var textViewBottomConstraint: NSLayoutConstraint!
 
 //MARK: View Setup
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         entryText.becomeFirstResponder()
     }
     
-    func styleNavBar() {
+    private func styleNavBar() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         let newNavBar = UINavigationBar.init(frame:(CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 64.0)))
         let newItem = UINavigationItem()
@@ -53,7 +53,7 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func displayCorrectEntry(){
+    private func displayCorrectEntry(){
         if entryBeingEdited != nil {
             displayEntryDate(entryBeingEdited.date!)
             self.entryText.text = self.entryBeingEdited.text
@@ -70,14 +70,14 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         }
     }
     
-    func displayEntryDate(date: NSDate) {
+    private func displayEntryDate(date: NSDate) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"
         self.title = dateFormatter.stringFromDate(date)
     }
        
 //MARK: CoreData Interactions
-    func saveOrUpdate() {
+    private func saveOrUpdate() {
         if entryBeingEdited != nil { updateEntry() }
         else { saveNewEntry() }
         
@@ -87,14 +87,14 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         }
     }
     
-    func updateEntry() {
+    private func updateEntry() {
         entryBeingEdited.text = self.entryText.text
         if (self.entryImageView.image != nil){
             entryBeingEdited.imageData = UIImageJPEGRepresentation(self.entryImageView.image!, 1)
         }
     }
     
-    func saveNewEntry() {
+    private func saveNewEntry() {
         let newEntry = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: self.moc) as! Entry
         newEntry.text = self.entryText.text
         newEntry.date = NSDate()
@@ -117,11 +117,7 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         }
     }
     
-    @IBAction func onAddImageButtonPressed(sender: UIBarButtonItem) {
-
-    }
-    
-    func promptForReplaceImage(){
+    private func promptForReplaceImage(){
         let prompt = UIAlertController(title:nil, message:nil, preferredStyle: .ActionSheet)
         
         let continueToReplace = UIAlertAction(title: "Replace current image", style: .Default) { (alert:UIAlertAction!) -> Void in
@@ -143,7 +139,7 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         presentViewController(prompt, animated: true, completion:nil)
     }
     
-    func promptForImageSource(){
+    private func promptForImageSource(){
         let imagePicker = UIImagePickerController()
         imagePicker.delegate      = self
         imagePicker.allowsEditing = true

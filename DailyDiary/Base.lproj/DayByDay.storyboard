@@ -10,7 +10,7 @@
         <!--Day By DayVC-->
         <scene sceneID="vvF-hl-6yi">
             <objects>
-                <viewController storyboardIdentifier="DayByDay" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m6b-oU-zeE" customClass="DayByDayVC" customModule="DailyDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DayByDay" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m6b-oU-zeE" customClass="DayByDayVC" customModule="Quotidian" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qfe-Hu-YWe"/>
                         <viewControllerLayoutGuide type="bottom" id="gEu-8k-dRL"/>

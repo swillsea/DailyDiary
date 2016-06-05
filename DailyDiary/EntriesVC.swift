@@ -12,14 +12,14 @@ import CoreData
 
 class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate{
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var layoutButton: UIBarButtonItem!
-    var viewIsListLayout = true
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var layoutButton: UIBarButtonItem!
+    private var viewIsListLayout = true
     let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    var entryResultsController: NSFetchedResultsController!
-    var resultsArray : [NSManagedObject]!
-    var sectionChanges = NSMutableArray()
-    var itemChanges = NSMutableArray()
+    private var entryResultsController: NSFetchedResultsController!
+    private var resultsArray : [NSManagedObject]!
+    private var sectionChanges = NSMutableArray()
+    private var itemChanges = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         self.collectionView.reloadData()
     }
     
-    func prepareForCollectionView() {
+    private func prepareForCollectionView() {
         entryResultsController = CoreDataManager.sharedInstance.fetchCoreData()
         entryResultsController.delegate = self
         resultsArray = entryResultsController.fetchedObjects! as! [NSManagedObject]
@@ -79,7 +79,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         }
     }
     
-    @IBAction func onLayoutButtonPressed(sender: UIBarButtonItem) {
+    @IBAction private func onLayoutButtonPressed(sender: UIBarButtonItem) {
         
         if (viewIsListLayout) {
             self.layoutButton.image = UIImage.init(named:"list")

@@ -10,13 +10,13 @@ import UIKit
 
 class ListCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var entryLabel: UILabel!
-    @IBOutlet weak var monthLabel: UILabel!
-    @IBOutlet weak var dayLabel: UILabel!
-    @IBOutlet weak var timeAgoLabel: UILabel!
-    @IBOutlet weak var timeAgoLabelLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var entryLabelLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var entryLabel: UILabel!
+    @IBOutlet private weak var monthLabel: UILabel!
+    @IBOutlet private weak var dayLabel: UILabel!
+    @IBOutlet private weak var timeAgoLabel: UILabel!
+    @IBOutlet private weak var timeAgoLabelLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var entryLabelLeadingConstraint: NSLayoutConstraint!
     
     weak var entry : Entry?{
         didSet {

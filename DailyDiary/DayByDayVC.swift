@@ -13,15 +13,15 @@ class DayByDayVC: UIViewController, UIScrollViewDelegate {
     var resultsArray : [NSManagedObject]!
     var selectedEntry: Entry!
     var index:NSInteger!
-    @IBOutlet var timeTextField: UITextField!
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var textView: UITextView!
+    @IBOutlet private var timeTextField: UITextField!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var textView: UITextView!
     var moc: NSManagedObjectContext!
-    @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var timeLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var wordCountLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var timeTextLabel: UILabel!
-    @IBOutlet weak var wordNumberLabel: UILabel!
+    @IBOutlet private weak var cardView: UIView!
+    @IBOutlet private weak var timeLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var wordCountLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var timeTextLabel: UILabel!
+    @IBOutlet private weak var wordNumberLabel: UILabel!
 
 //MARK: Appearance
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class DayByDayVC: UIViewController, UIScrollViewDelegate {
         self.showDiaryWithEntry(self.selectedEntry)
     }
     
-    func styleNavBar() {
+    private func styleNavBar() {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -50,7 +50,7 @@ class DayByDayVC: UIViewController, UIScrollViewDelegate {
         return true
     }
     
-    func showDiaryWithEntry(entry:Entry) {
+    private func showDiaryWithEntry(entry:Entry) {
         let dateFormat = NSDateFormatter()
         dateFormat.dateStyle = .MediumStyle
         self.timeTextField.text = dateFormat.stringFromDate(entry.date!)
@@ -73,7 +73,7 @@ class DayByDayVC: UIViewController, UIScrollViewDelegate {
     }
 
 //MARK: Moving through Entries
-    func goBackOneEntry(){
+    private func goBackOneEntry(){
         if self.index == self.resultsArray.count-1 {
         } else {
             self.selectedEntry = resultsArray[self.index+1] as! Entry
@@ -82,7 +82,7 @@ class DayByDayVC: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func goForwardOneEntry(){
+    private func goForwardOneEntry(){
         if self.index == 0 {
         } else {
             self.selectedEntry = resultsArray[self.index-1] as! Entry
@@ -91,34 +91,34 @@ class DayByDayVC: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    @IBAction func onLeftButtonPressed(sender: UIButton) {
+    @IBAction private func onLeftButtonPressed(sender: UIButton) {
         goForwardOneEntry()
     }
     
-    @IBAction func onRightButtonPressed(sender: UIButton) {
+    @IBAction private func onRightButtonPressed(sender: UIButton) {
         goBackOneEntry()
     }
     
     //Allows us to override UITextView gesture recognition so entries are swipeable when swipes occur over text
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    private func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
-    @IBAction func onSwipeRight(sender: UISwipeGestureRecognizer) {
+    @IBAction private func onSwipeRight(sender: UISwipeGestureRecognizer) {
         textView.scrollEnabled = false
         goBackOneEntry()
         textView.scrollEnabled = true
 
     }
     
-    @IBAction func onSwipeLeft(sender: UISwipeGestureRecognizer) {
+    @IBAction private func onSwipeLeft(sender: UISwipeGestureRecognizer) {
         textView.scrollEnabled = false
         goForwardOneEntry()
         textView.scrollEnabled = true
     }
     
 //MARK: Navigation
-    @IBAction func onDismissButtonPressed(sender: UIButton) {
+    @IBAction private func onDismissButtonPressed(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
