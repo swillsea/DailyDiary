@@ -301,15 +301,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkb-xO-aXf">
                                 <rect key="frame" x="12" y="47" width="351" height="605"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your last entry was \(lastWordCount) words. Try adding another." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRT-aQ-omL">
-                                        <rect key="frame" x="20" y="30" width="311" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="8sK-8u-LXi"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5k9-Ik-dTI">
                                         <rect key="frame" x="125.5" y="460" width="100" height="100"/>
                                         <constraints>
@@ -324,6 +315,15 @@
                                             <segue destination="Oax-of-3EB" kind="presentation" id="u5C-hB-b2b"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your last entry was \(lastWordCount) words. Try adding another." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRT-aQ-omL">
+                                        <rect key="frame" x="20" y="30" width="311" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="8sK-8u-LXi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -357,6 +357,7 @@
                     <connections>
                         <outlet property="addRoundButton" destination="5k9-Ik-dTI" id="MQ6-VA-GD0"/>
                         <outlet property="cardView" destination="dkb-xO-aXf" id="Gp9-rU-4X3"/>
+                        <outlet property="userPromptLabel" destination="ZRT-aQ-omL" id="S0z-5t-mcV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3K-11-eZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,9 +11,11 @@ import CoreData
 
 class AddNewDayByDayVC: UIViewController {
 
+    @IBOutlet weak var userPromptLabel: UILabel!
     @IBOutlet weak var addRoundButton: UIButton!
     @IBOutlet weak var cardView: UIView!
     var moc: NSManagedObjectContext!
+    var lastEntryWordCount : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,8 @@ class AddNewDayByDayVC: UIViewController {
         addRoundButton.clipsToBounds = true
         addRoundButton.layer.borderColor = UIColor.whiteColor().CGColor
         addRoundButton.layer.borderWidth = 1.0
+        
+        userPromptLabel.text = "Your last entry had \(lastEntryWordCount!). Try adding another."
     }
     
     override func viewWillAppear(animated: Bool) {

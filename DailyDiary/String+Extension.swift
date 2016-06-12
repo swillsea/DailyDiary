@@ -13,7 +13,7 @@ extension NSString {
     func asWordCountString()-> String {
         let words = self.componentsSeparatedByString(" ") as Array
         
-        if (words.count == 1) && (words[0].characters.count < 0) {
+        if (words.count == 1) && (words[0].characters.count > 0) {
             return "\(words.count) word"
         } else if words.count == 1 {
             return "No words"

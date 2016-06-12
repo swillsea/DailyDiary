@@ -172,6 +172,7 @@ class DayByDayVC: UIViewController, UIScrollViewDelegate {
         if segue.identifier == "toAddNewVC" {
             let destVC = segue.destinationViewController as! AddNewDayByDayVC
             destVC.moc = self.moc
+            destVC.lastEntryWordCount = selectedEntry.text!.asWordCountString()
 
         } else {
             let destVC = segue.destinationViewController as! AddOrEditVC
