@@ -30,7 +30,7 @@ class AddNewDayByDayVC: UIViewController {
         addRoundButton.layer.borderColor = UIColor.whiteColor().CGColor
         addRoundButton.layer.borderWidth = 1.0
         
-        userPromptLabel.text = "Your last entry had \(lastEntryWordCount!). Try adding another."
+        userPromptLabel.text = "Your last entry had \(lastEntryWordCount!.lowercaseString). Try adding a longer entry."
     }
     
     override func viewWillAppear(animated: Bool) {
