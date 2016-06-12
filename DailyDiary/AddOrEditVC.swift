@@ -49,8 +49,6 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         if (self.entryText.text.characters.count > 0 || self.entryImageView.image != nil){
             saveOrUpdate()
         }
-        self.entryText.resignFirstResponder()
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     private func displayCorrectEntry(){
@@ -78,12 +76,15 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
        
 //MARK: CoreData Interactions
     private func saveOrUpdate() {
-        if entryBeingEdited != nil { updateEntry() }
-        else { saveNewEntry() }
-        
-        do { try self.moc.save() }
-        catch let error as NSError {
-            print("Error saving to CoreData \(error)")
+        if entryBeingEdited != nil {
+            updateEntry()
+            self.entryText.resignFirstResponder()
+            self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        }
+        else {
+            saveNewEntry()
+            self.entryText.resignFirstResponder()
+            self.performSegueWithIdentifier("unwindToRootVC", sender: self)
         }
     }
     
@@ -91,6 +92,11 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         entryBeingEdited.text = self.entryText.text
         if (self.entryImageView.image != nil){
             entryBeingEdited.imageData = UIImageJPEGRepresentation(self.entryImageView.image!, 1)
+        }
+        
+        do { try self.moc.save() }
+        catch let error as NSError {
+            print("Error saving to CoreData \(error)")
         }
     }
     
@@ -105,6 +111,11 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
             newEntry.imageData = UIImageJPEGRepresentation(UIImage(), 0)
         }
         entryBeingEdited = newEntry
+        
+        do { try self.moc.save() }
+        catch let error as NSError {
+            print("Error saving to CoreData \(error)")
+        }
     }
 
 //MARK: Actions

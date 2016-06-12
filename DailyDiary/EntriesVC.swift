@@ -181,7 +181,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "toAddNew" {
-            let destVC = segue.destinationViewController as! AddOrEditVC // since we're going to a navigation controller
+            let destVC = segue.destinationViewController as! AddOrEditVC
             destVC.moc = self.moc
             
         } else if segue.identifier == "toDayView" {
@@ -193,4 +193,8 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
             destVC.moc = self.moc
         }
     }
+    
+    @IBAction func unwindToRootVC(unwindSegue: UIStoryboardSegue){
+    }
 }
+

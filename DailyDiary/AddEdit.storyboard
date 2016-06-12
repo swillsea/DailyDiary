@@ -62,9 +62,11 @@
                         <outlet property="entryText" destination="i4s-ZE-T9b" id="u0H-cU-8aT"/>
                         <outlet property="imageHeightConstraint" destination="Hk2-4B-3vY" id="JLe-H8-RKe"/>
                         <outlet property="textViewBottomConstraint" destination="Lk6-yL-iqa" id="LMT-c9-3Dy"/>
+                        <segue destination="Mxl-26-kzS" kind="unwind" identifier="unwindToRootVC" animates="NO" unwindAction="unwindToRootVC:" id="JcZ-Hy-Fu1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8q-ye-hXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Mxl-26-kzS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2173.5" y="1122.5"/>
         </scene>

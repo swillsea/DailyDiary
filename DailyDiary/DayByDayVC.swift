@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class DayByDayVC: UIViewController, UIScrollViewDelegate {
+    
     var resultsArray : [NSManagedObject]!
     var selectedEntry: Entry!
     var index:NSInteger!
@@ -74,21 +75,65 @@ class DayByDayVC: UIViewController, UIScrollViewDelegate {
 
 //MARK: Moving through Entries
     private func goBackOneEntry(){
+        
         if self.index == self.resultsArray.count-1 {
+            displayStatsView()
+        } else if self.index == self.resultsArray.count-2 {
+            resetToMainView()
+            displayPreviousEntry()
         } else {
-            self.selectedEntry = resultsArray[self.index+1] as! Entry
-            self.showDiaryWithEntry(self.selectedEntry)
-            self.index = self.index + 1
+            displayPreviousEntry()
         }
     }
     
     private func goForwardOneEntry(){
         if self.index == 0 {
+            displayAddNewView()
+        } else if self.index == 1 {
+            resetToMainView()
+            displayNextEntry()
         } else {
-            self.selectedEntry = resultsArray[self.index-1] as! Entry
-            self.showDiaryWithEntry(self.selectedEntry)
-            self.index = self.index - 1
+            displayNextEntry()
         }
+    }
+    
+    private func resetToMainView(){
+        //enable forward and back buttons
+        //change add button to "Edit"
+        //remove view's border
+        //change viewBackground to white
+        //change time and wordCount Color back to customRed
+        //change textView color to customGray
+        //change textView fontSize back to 14?
+    }
+    
+    private func displayStatsView(){
+        
+    }
+    
+    private func displayAddNewView(){
+        performSegueWithIdentifier("toAddNewVC", sender: self)
+        //disable back< button
+        //Change date text to "Past Entries"
+        //Change Edit button to "Add"
+        //Add white border to view
+        //change view background to clearColor
+        //change Time and wordcount labels to clearColor
+        //change textView color to white
+        //change textView fontSize to 20?
+        //change textView text to "Your last entry was \(lastWordCount) words. Try adding another."
+    }
+    
+    private func displayPreviousEntry(){
+        self.selectedEntry = resultsArray[self.index+1] as! Entry
+        self.showDiaryWithEntry(self.selectedEntry)
+        self.index = self.index + 1
+    }
+    
+    private func displayNextEntry(){
+        self.selectedEntry = resultsArray[self.index-1] as! Entry
+        self.showDiaryWithEntry(self.selectedEntry)
+        self.index = self.index - 1
     }
     
     @IBAction private func onLeftButtonPressed(sender: UIButton) {
@@ -123,10 +168,16 @@ class DayByDayVC: UIViewController, UIScrollViewDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destVC = segue.destinationViewController as! AddOrEditVC // since we're going to a navigation controller
         
-        destVC.moc = self.moc
-        destVC.entryBeingEdited = self.selectedEntry
+        if segue.identifier == "toAddNewVC" {
+            let destVC = segue.destinationViewController as! AddNewDayByDayVC
+            destVC.moc = self.moc
+
+        } else {
+            let destVC = segue.destinationViewController as! AddOrEditVC
+            destVC.moc = self.moc
+            destVC.entryBeingEdited = self.selectedEntry
+        }
         
     }
 
