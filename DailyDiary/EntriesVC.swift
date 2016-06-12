@@ -10,7 +10,10 @@ import UIKit
 import CoreData
 
 
-class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate{
+class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate, UISearchBarDelegate{
+    
+    @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var layoutButton: UIBarButtonItem!
@@ -23,6 +26,9 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBarTopConstraint.constant = -44
+        searchBar.delegate = self
+
     }
     
     override func viewWillAppear(animated: Bool) {

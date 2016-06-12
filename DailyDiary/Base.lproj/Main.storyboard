@@ -12,7 +12,7 @@
         <!--EntriesVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="EntriesVC" customModule="DailyDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="EntriesVC" customModule="Quotidian" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,9 +21,24 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="search existing entries" translatesAutoresizingMaskIntoConstraints="NO" id="LCZ-1g-RrB">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="44"/>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Ecx-ZX-LKf"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="searchField.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ul2-YA-2io">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.91959134615384619" green="0.91959134615384619" blue="0.91959134615384619" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="559"/>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="4ei-C5-XID">
                                     <size key="itemSize" width="156" height="153"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,7 +46,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gridCell" id="b6K-OP-y5A" customClass="GridCell" customModule="DailyDiary" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gridCell" id="b6K-OP-y5A" customClass="GridCell" customModule="Quotidian" customModuleProvider="target">
                                         <rect key="frame" x="128" y="0.0" width="119" height="119"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -56,7 +71,7 @@
                                             <segue destination="W0O-Wz-W2u" kind="show" identifier="toDayView" id="fVg-nH-MO9"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="listCell" id="0qe-UF-5i2" customClass="ListCell" customModule="DailyDiary" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="listCell" id="0qe-UF-5i2" customClass="ListCell" customModule="Quotidian" customModuleProvider="target">
                                         <rect key="frame" x="18" y="119" width="339" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -171,13 +186,18 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ul2-YA-2io" secondAttribute="bottom" id="58f-Yg-bzW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LCZ-1g-RrB" secondAttribute="trailing" constant="-20" id="BVp-sT-Kk0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ul2-YA-2io" secondAttribute="trailing" constant="-16" id="F4F-Kg-VSM"/>
                             <constraint firstItem="ul2-YA-2io" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SY9-4s-rkL"/>
                             <constraint firstItem="ul2-YA-2io" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="aiC-AW-5gf"/>
+                            <constraint firstItem="LCZ-1g-RrB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="nia-W5-ram"/>
                             <constraint firstItem="ul2-YA-2io" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="qVc-qf-s07"/>
+                            <constraint firstItem="LCZ-1g-RrB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="uXi-3w-o3e"/>
+                            <constraint firstItem="ul2-YA-2io" firstAttribute="top" secondItem="LCZ-1g-RrB" secondAttribute="bottom" id="vTH-oX-Owp"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="SY9-4s-rkL"/>
                                 <exclude reference="qVc-qf-s07"/>
                             </mask>
                         </variation>
@@ -196,8 +216,11 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="SearchBar" destination="LCZ-1g-RrB" id="Qr1-B2-BKi"/>
                         <outlet property="collectionView" destination="ul2-YA-2io" id="OGX-T8-aKL"/>
                         <outlet property="layoutButton" destination="pTR-lg-HnD" id="TkN-0P-ujI"/>
+                        <outlet property="searchBar" destination="LCZ-1g-RrB" id="eYh-IW-pfj"/>
+                        <outlet property="searchBarTopConstraint" destination="uXi-3w-o3e" id="ngU-hS-evW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -247,7 +270,7 @@
         <!--Animation View Controller-->
         <scene sceneID="SXT-ap-iZJ">
             <objects>
-                <viewController storyboardIdentifier="Animation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T3w-Mu-fYj" customClass="AnimationViewController" customModule="DailyDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Animation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T3w-Mu-fYj" customClass="AnimationViewController" customModule="Quotidian" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iv5-Hk-Amq"/>
                         <viewControllerLayoutGuide type="bottom" id="yu2-8s-251"/>
