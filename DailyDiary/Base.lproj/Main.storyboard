@@ -198,11 +198,13 @@
                     <connections>
                         <outlet property="collectionView" destination="ul2-YA-2io" id="OGX-T8-aKL"/>
                         <outlet property="layoutButton" destination="pTR-lg-HnD" id="TkN-0P-ujI"/>
+                        <segue destination="lfT-9k-ZzK" kind="unwind" identifier="unwindToRootVC" unwindAction="unwindToRootVC:" id="Nzm-lB-IHf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="lfT-9k-ZzK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="846.5" y="1122.5"/>
+            <point key="canvasLocation" x="839.5" y="1130.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HM0-9R-I6y">

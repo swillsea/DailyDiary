@@ -48,6 +48,9 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
     func backTapped (){
         if (self.entryText.text.characters.count > 0 || self.entryImageView.image != nil){
             saveOrUpdate()
+        } else {
+            self.entryText.resignFirstResponder()
+            self.performSegueWithIdentifier("unwindToRootVC", sender: self)
         }
     }
     

@@ -42,6 +42,9 @@ class AddNewDayByDayVC: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    @IBAction func onSwipeLeft(sender: UISwipeGestureRecognizer) {
+        self.navigationController?.popViewControllerAnimated(false)
+    }
     
     @IBAction func onBackPressed(sender: UIButton) {
         self.navigationController?.popToRootViewControllerAnimated(true)
