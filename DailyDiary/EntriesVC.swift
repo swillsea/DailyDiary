@@ -23,6 +23,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -30,6 +31,7 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation:UIStatusBarAnimation.None)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         prepareForCollectionView()
+        prepareNavBar()
         self.collectionView.reloadData()
     }
     
@@ -38,6 +40,15 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         entryResultsController.delegate = self
         resultsArray = entryResultsController.fetchedObjects! as! [NSManagedObject]
         self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+    }
+    
+    private func prepareNavBar() {
+        let titleFont = [NSFontAttributeName: UIFont(name: "Avenir", size: 18.0)!]
+        let titleView = UILabel()
+        titleView.attributedText = NSAttributedString(string: "\(resultsArray.count) entries", attributes: titleFont)
+        titleView.textColor = .grayColor()
+        titleView.sizeToFit()
+        self.navigationItem.titleView = titleView
     }
     
     
