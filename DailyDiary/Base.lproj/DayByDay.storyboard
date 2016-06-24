@@ -189,7 +189,9 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="backButton" destination="LFH-gr-LWd" id="QWJ-pd-oZ5"/>
                         <outlet property="cardView" destination="oqA-8N-Oge" id="BFy-VE-jea"/>
+                        <outlet property="editButton" destination="4aj-BB-RQh" id="0a4-Mu-I8s"/>
                         <outlet property="imageView" destination="kMV-6U-tar" id="yvh-Ou-YnK"/>
                         <outlet property="textView" destination="FPE-d2-5Gd" id="3xL-yK-dNl"/>
                         <outlet property="timeLabelTopConstraint" destination="zWI-fO-VPc" id="Vd7-fr-UtK"/>

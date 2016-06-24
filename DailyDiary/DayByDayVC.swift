@@ -22,18 +22,24 @@ class DayByDayVC: UIViewController, UIScrollViewDelegate {
     @IBOutlet private weak var wordCountLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var timeTextLabel: UILabel!
     @IBOutlet private weak var wordNumberLabel: UILabel!
-
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    
 //MARK: Appearance
     override func viewDidLoad() {
         super.viewDidLoad()
         self.styleNavBar()
         self.prefersStatusBarHidden()
+        
         self.cardView.layer.cornerRadius = 14
         self.cardView.clipsToBounds = true
         if self.resultsArray.count != 0 {
             self.selectedEntry = resultsArray[self.index] as! Entry
             self.showDiaryWithEntry(self.selectedEntry)
         }
+        
+        editButton.setTitleColor(.grayColor(), forState: .Highlighted)
+        backButton.setTitleColor(.grayColor(), forState: .Highlighted)
     }
     
     override func viewWillAppear(animated: Bool) {
