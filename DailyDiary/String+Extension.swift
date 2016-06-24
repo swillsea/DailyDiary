@@ -11,14 +11,22 @@ import Foundation
 extension NSString {
     
     func asWordCountString()-> String {
+       
         let words = self.componentsSeparatedByString(" ") as Array
+        var wordsOnly = []
         
-        if (words.count == 1) && (words[0].characters.count < 0) {
-            return "\(words.count) word"
-        } else if words.count == 1 {
+        for string in words {
+            if string != "" {
+                wordsOnly = wordsOnly.arrayByAddingObject(string)
+            }
+        }
+
+        if wordsOnly.count == 1 {
+            return "\(wordsOnly.count) word"
+        } else if wordsOnly.count == 0 {
             return "No words"
         } else {
-            return "\(words.count) words"
+            return "\(wordsOnly.count) words"
         }
     }
 }
