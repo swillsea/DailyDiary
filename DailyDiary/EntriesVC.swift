@@ -47,6 +47,22 @@ class EntriesVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         else { return 0 }
     }
     
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        let footerview = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: "footer", forIndexPath: indexPath)
+        return footerview
+
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if resultsArray != nil && resultsArray.count == 0 {
+            return CGSizeMake(collectionView.frame.width, 185)
+        } else {
+            return CGSizeMake(0, 0)
+        }
+    }
+    
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         var collectionViewWidth : CGFloat = 30.0
         if collectionView.frame.size.width > 30 {
