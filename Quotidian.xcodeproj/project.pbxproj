@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		223C17BA1D25FD0500E9207C /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223C17B91D25FD0500E9207C /* HeaderCollectionReusableView.swift */; };
 		223DEFE71CE1813A001E8192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DEFE61CE1813A001E8192 /* AppDelegate.swift */; };
 		223DEFEC1CE1813A001E8192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223DEFEA1CE1813A001E8192 /* Main.storyboard */; };
 		223DEFF11CE1813A001E8192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223DEFF01CE1813A001E8192 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		223C17B91D25FD0500E9207C /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		223DEFE31CE1813A001E8192 /* Quotidian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotidian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223DEFE61CE1813A001E8192 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		223DEFEB1CE1813A001E8192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				223DF0011CE18594001E8192 /* GridCell.swift */,
 				223DF0031CE185A4001E8192 /* ListCell.swift */,
+				223C17B91D25FD0500E9207C /* HeaderCollectionReusableView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223C17BA1D25FD0500E9207C /* HeaderCollectionReusableView.swift in Sources */,
 				2266D8651CFCA74E0008D8C2 /* Entry.swift in Sources */,
 				228E7F8D1CE25DFA003BF13B /* AnimationViewController.swift in Sources */,
 				223DEFE71CE1813A001E8192 /* AppDelegate.swift in Sources */,
