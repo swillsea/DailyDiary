@@ -20,25 +20,44 @@ class ListCell: UICollectionViewCell {
     
     weak var entry : Entry?{
         didSet {
-            if entry?.imageData != nil {
-                imageView.image = UIImage(data: (entry?.imageData!)!)
-                
-                timeAgoLabelLeadingConstraint.constant = 10
-                entryLabelLeadingConstraint.constant   = 10
-                
-            } else {
-                imageView.image = nil;
-                
-                timeAgoLabelLeadingConstraint.constant = -imageView.frame.width + 10
-                entryLabelLeadingConstraint.constant   = -imageView.frame.width + 10
-            }
-            entryLabel.text = entry!.text
-            monthLabel.text = entry!.date!.month().uppercaseString
-            dayLabel.text = entry!.date!.day()
-//            let timeSinceCreated = entry!.date!.timeAsString()
-            self.timeAgoLabel.text = "\(entry!.text!.asWordCountString())"
-            self.layer.cornerRadius = 4
-            self.clipsToBounds = true
+            styleCorners()
+            displayLabelText()
+            checkIfImageExists()
         }
+    }
+    
+    private func styleCorners() {
+        self.layer.cornerRadius = 4
+        self.clipsToBounds = true
+    }
+    
+    private func displayLabelText() {
+        entryLabel.text = entry!.text
+        monthLabel.text = entry!.date!.month().uppercaseString
+        dayLabel.text = entry!.date!.day()
+        timeAgoLabel.text = "\(entry!.text!.asWordCountString())"
+        // let timeSinceCreated = entry!.date!.timeAsString()
+    }
+    
+    private func checkIfImageExists() {
+        if entry?.imageData != nil {
+            setViewWhenNoImageExists()
+        } else {
+            setViewWhenImageExists()
+        }
+    }
+    
+    private func setViewWhenNoImageExists() {
+        imageView.image = UIImage(data: (entry?.imageData!)!)
+        
+        timeAgoLabelLeadingConstraint.constant = 10
+        entryLabelLeadingConstraint.constant   = 10
+    }
+    
+    private func setViewWhenImageExists() {
+        imageView.image = nil;
+        
+        timeAgoLabelLeadingConstraint.constant = -imageView.frame.width + 10
+        entryLabelLeadingConstraint.constant   = -imageView.frame.width + 10
     }
 }

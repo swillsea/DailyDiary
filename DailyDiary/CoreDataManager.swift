@@ -28,17 +28,16 @@ class CoreDataManager: NSObject {
         do {
             try entryResultsController.performFetch()
                 
-//              If fetch is empty, load test data
-                if entryResultsController.fetchedObjects?.count == 0 {
-//                    self.addTestData() - this method only exists in the testing branch so as not to ever accidently push to the app store
-                }
+                //If fetch is empty, load test data
+                //if entryResultsController.fetchedObjects?.count == 0 {
+                //self.addTestData() - this method only exists in the testing branch so as not to ever accidently push to the app store
+                //}
             
         }catch let error as NSError{
             print("Could not fetch \(error), \(error.userInfo)")
         }
+        
         return entryResultsController
     }
-    
-    
-    
+
 }
