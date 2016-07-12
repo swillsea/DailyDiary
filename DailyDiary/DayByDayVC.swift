@@ -78,9 +78,6 @@ class DayByDayVC: UIViewController, UIScrollViewDelegate {
         
         if self.index == self.resultsArray.count-1 {
             displayStatsView()
-        } else if self.index == self.resultsArray.count-2 {
-            resetToMainView()
-            displayPreviousEntry()
         } else {
             displayPreviousEntry()
         }
@@ -89,39 +86,17 @@ class DayByDayVC: UIViewController, UIScrollViewDelegate {
     private func goForwardOneEntry(){
         if self.index == 0 {
             displayAddNewView()
-        } else if self.index == 1 {
-            resetToMainView()
-            displayNextEntry()
         } else {
             displayNextEntry()
         }
     }
     
-    private func resetToMainView(){
-        //enable forward and back buttons
-        //change add button to "Edit"
-        //remove view's border
-        //change viewBackground to white
-        //change time and wordCount Color back to customRed
-        //change textView color to customGray
-        //change textView fontSize back to 14?
-    }
-    
     private func displayStatsView(){
-        
+        performSegueWithIdentifier("toStatsVC", sender: self)
     }
     
     private func displayAddNewView(){
         performSegueWithIdentifier("toAddNewVC", sender: self)
-        //disable back< button
-        //Change date text to "Past Entries"
-        //Change Edit button to "Add"
-        //Add white border to view
-        //change view background to clearColor
-        //change Time and wordcount labels to clearColor
-        //change textView color to white
-        //change textView fontSize to 20?
-        //change textView text to "Your last entry was \(lastWordCount) words. Try adding another."
     }
     
     private func displayPreviousEntry(){
@@ -174,7 +149,10 @@ class DayByDayVC: UIViewController, UIScrollViewDelegate {
             destVC.moc = self.moc
             destVC.lastEntryWordCount = selectedEntry.text!.asWordCountString()
 
-        } else {
+        } else if segue.identifier == "toStatsVC"{
+//            let destVC = segue.destinationViewController as! StatsVC
+
+        }else{
             let destVC = segue.destinationViewController as! AddOrEditVC
             destVC.moc = self.moc
             destVC.entryBeingEdited = self.selectedEntry
