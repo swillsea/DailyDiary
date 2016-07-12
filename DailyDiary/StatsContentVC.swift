@@ -24,7 +24,7 @@ class StatsContentVC: UIViewController {
     }
     
     private func displayBasicStats(){
-        statsLabel.text = "Total entries: 8" + "\n" + "Total words: 1,045" + "Avg words per entry: 303 " + "Entries in the last 30 days: 7"
+        statsLabel.text = "Total entries: 8" + "\n" + "Total words: 1,045" + "\n" + "Avg words per entry: 303 " + "\n" + "Entries in the last 30 days: 7"
     }
     
     private func populateMonthGraph(){
