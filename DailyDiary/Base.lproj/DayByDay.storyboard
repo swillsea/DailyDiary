@@ -481,12 +481,13 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1iE-4n-P1o">
                                 <rect key="frame" x="12" y="47" width="351" height="605"/>
                                 <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTp-zb-LQs">
+                                    <containerView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bTp-zb-LQs">
                                         <rect key="frame" x="0.0" y="-148" width="351" height="900"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="900" id="ARa-fU-EB2"/>
                                         </constraints>
                                         <connections>
+                                            <outletCollection property="gestureRecognizers" destination="gyM-zB-bfX" appends="YES" id="qgY-Dt-767"/>
                                             <segue destination="w5L-AR-a13" kind="embed" id="F4W-Z7-kLj"/>
                                         </connections>
                                     </containerView>
@@ -523,7 +524,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZXY-hY-peR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="gyM-zB-bfX"/>
+                <swipeGestureRecognizer direction="right" id="gyM-zB-bfX">
+                    <connections>
+                        <action selector="onSwipeRight:" destination="jqR-wH-K9f" id="OG3-Bn-VIW"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1309.5" y="1794.5"/>
         </scene>
@@ -531,6 +536,10 @@
         <scene sceneID="YqL-Oh-Ftd">
             <objects>
                 <viewController id="w5L-AR-a13" customClass="StatsContentVC" customModule="Quotidian" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6nz-kG-oh4"/>
+                        <viewControllerLayoutGuide type="bottom" id="yRY-aX-7Nr"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EUC-Xk-A6j">
                         <rect key="frame" x="0.0" y="0.0" width="351" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

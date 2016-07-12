@@ -31,6 +31,10 @@ class StatsVC: UIViewController {
         return true
     }
     
+    @IBAction func onSwipeRight(sender: UISwipeGestureRecognizer) {
+        self.navigationController?.popViewControllerAnimated(false)
+    }
+    
     @IBAction func onBackPressed(sender: UIButton) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
