@@ -25,7 +25,7 @@ class AddNewDayByDayVC: UIViewController {
         cardView.layer.borderColor = UIColor.whiteColor().CGColor
         cardView.layer.borderWidth = 1.0
         
-        addRoundButton.layer.cornerRadius = 50
+        addRoundButton.layer.cornerRadius = addRoundButton.frame.width/2
         addRoundButton.clipsToBounds = true
         addRoundButton.layer.borderColor = UIColor.whiteColor().CGColor
         addRoundButton.layer.borderWidth = 1.0

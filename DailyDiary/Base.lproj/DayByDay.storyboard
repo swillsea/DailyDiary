@@ -303,10 +303,10 @@
                                 <rect key="frame" x="12" y="47" width="351" height="605"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5k9-Ik-dTI">
-                                        <rect key="frame" x="125.5" y="460" width="100" height="100"/>
+                                        <rect key="frame" x="135.5" y="480" width="80" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="0Xa-3s-r8B"/>
-                                            <constraint firstAttribute="height" constant="100" id="Tbw-fG-NG0"/>
+                                            <constraint firstAttribute="width" constant="80" id="0Xa-3s-r8B"/>
+                                            <constraint firstAttribute="height" constant="80" id="Tbw-fG-NG0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="59"/>
                                         <state key="normal" title="+">
@@ -638,6 +638,6 @@ Entries in the last 30 days: 7</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UJm-GY-a6t"/>
+        <segue reference="u5C-hB-b2b"/>
     </inferredMetricsTieBreakers>
 </document>
