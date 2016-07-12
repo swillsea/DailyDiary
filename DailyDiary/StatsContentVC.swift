@@ -30,13 +30,16 @@ class StatsContentVC: UIViewController {
     private func populateMonthGraph(){
         let monthData = [1,3,4,5,7,2,4,5,6,2,3]
         let monthLabels = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+        monthGraph.graphWidth = UInt(monthLabels.count * 42)
         styleGraph(monthGraph, with: monthData, and: monthLabels)
     }
     
     private func populateDayGraph(){
         let dayData = [0, 0, 0, 3, 4, 2, 1]
         let dayLabels = ["MON", "TUES", "WED", "THUR", "FRI", "SAT", "SUN"]
+        dayGraph.graphWidth = UInt(self.view.frame.width - 50)
         styleGraph(dayGraph, with: dayData, and: dayLabels)
+
     }
     
     private func styleGraph(graph: JYGraphView, with data: [Int], and labelData: [String]){
@@ -46,7 +49,6 @@ class StatsContentVC: UIViewController {
         graph.hidePoints = true
         graph.hideLabels = false
         graph.useCurvedLine = true
-        graph.graphWidth = UInt(labelData.count * 42)
         graph.barColor = UIColor.clearColor()
         graph.labelBackgroundColor = UIColor.clearColor()
         graph.backgroundViewColor = UIColor.clearColor()
