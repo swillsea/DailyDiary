@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i4s-ZE-T9b">
-                                <rect key="frame" x="12" y="60" width="367" height="283"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i4s-ZE-T9b">
+                                <rect key="frame" x="12" y="130" width="367" height="277"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.93129088579999997" green="0.1041468311" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,12 +45,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="June 5th" id="4hM-kr-gNS">
-                        <barButtonItem key="leftBarButtonItem" title="Done" style="plain" id="9uy-Tn-DzX">
+                        <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="9uy-Tn-DzX">
                             <connections>
                                 <action selector="onBackButtonPressed:" destination="0J1-nR-5iK" id="pim-aC-qBc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="bPR-HA-Rai">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="camera" id="bPR-HA-Rai">
                             <connections>
                                 <action selector="onAddImageButtonPressed:" destination="0J1-nR-5iK" id="NUn-au-XYz"/>
                             </connections>

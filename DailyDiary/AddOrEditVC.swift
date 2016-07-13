@@ -34,7 +34,7 @@ class AddOrEditVC: UIViewController, UIActionSheetDelegate, UITextViewDelegate, 
         let newItem = UINavigationItem()
         
         let addImageButtonImage = UIImage.init(named:"camera")
-        let addImageBarButtonItem = UIBarButtonItem.init(image: addImageButtonImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.addImage))
+        let addImageBarButtonItem = UIBarButtonItem.init(image: addImageButtonImage, style: UIBarButtonItemStyle.Done, target: self, action: #selector(self.addImage))
         
         let doneBarButtonItem = UIBarButtonItem.init(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: #selector(self.backTapped))
         
