@@ -31,18 +31,18 @@ class StatsContentVC: UIViewController {
         let monthData = [1,3,4,5,7,2,4,5,6,2,3]
         let monthLabels = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
         monthGraph.graphWidth = UInt(monthLabels.count * 42)
-        styleGraph(monthGraph, with: monthData, and: monthLabels)
+        styleGraph(monthGraph, withData: monthData, andLabels: monthLabels)
     }
     
     private func populateDayGraph(){
         let dayData = [0, 0, 0, 3, 4, 2, 1]
         let dayLabels = ["MON", "TUES", "WED", "THUR", "FRI", "SAT", "SUN"]
         dayGraph.graphWidth = UInt(self.view.frame.width - 50)
-        styleGraph(dayGraph, with: dayData, and: dayLabels)
+        styleGraph(dayGraph, withData: dayData, andLabels: dayLabels)
 
     }
     
-    private func styleGraph(graph: JYGraphView, with data: [Int], and labelData: [String]){
+    private func styleGraph(graph: JYGraphView, withData data: [Int], andLabels labelData: [String]){
         graph.graphData = data
         graph.graphDataLabels = labelData
         graph.strokeColor = UIColor.init(red: 243/250, green: 40/250, blue: 2/250, alpha: 1.0)
