@@ -45,7 +45,7 @@ class StatsContentVC: UIViewController {
     private func styleGraph(graph: JYGraphView, withData data: [Int], andLabels labelData: [String]){
         graph.graphData = data
         graph.graphDataLabels = labelData
-        graph.strokeColor = UIColor.init(red: 243/250, green: 40/250, blue: 2/250, alpha: 1.0)
+        graph.strokeColor = UIColor.init(red: 243/255, green: 40/255, blue: 2/255, alpha: 1.0)
         graph.hidePoints = true
         graph.hideLabels = false
         graph.useCurvedLine = true
